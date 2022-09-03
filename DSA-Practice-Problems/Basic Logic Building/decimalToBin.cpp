@@ -1,24 +1,31 @@
-#include<iostream>
-#include<math.h>
+#include <iostream>
 using namespace std;
-
+ 
+// function to convert decimal to binary
+void decToBinary(int n)
+{
+    // array to store binary number
+    int binaryNum[32];
+ 
+    // counter for binary array
+    int i = 0;
+    while (n > 0) {
+ 
+        // storing remainder in binary array
+        binaryNum[i] = n % 2;
+        n = n / 2;
+        i++;
+    }
+ 
+    // printing binary array in reverse order
+    for (int j = i - 1; j >= 0; j--)
+        cout << binaryNum[j];
+}
+ 
+// Driver program to test above function
 int main()
 {
-int n;
-cout<<"\n Value daal: ";
-cin>> n;
-int ans=0;
-int i=0;
-
-while(n!=0)
-{
-    int bit = n & 1;
-    ans = (bit * pow(10, i)) + ans;
-
-    n>>1;
-}
-
-cout<<"\n Answer is: "<<ans;
-
-return 0;
+    int n = 8;
+    decToBinary(n);
+    return 0;
 }

@@ -9,11 +9,12 @@ int getPivot(int arr[], int n)
 
     while(s<e)
     {
-        if(arr[mid]>=arr[0])
+        if(arr[mid]>=arr[s])
         {
             s=mid+1;
         }
-        else{
+        else
+        {
             e=mid;
         }
         mid = s + (e-s)/2;
