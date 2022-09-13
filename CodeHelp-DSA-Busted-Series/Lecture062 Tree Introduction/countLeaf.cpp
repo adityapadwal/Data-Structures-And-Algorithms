@@ -1,6 +1,5 @@
-/**********************************************************
-
-    Following is the Binary Tree Node class structure:
+#include<iostream>
+using namespace std;
 
     template <typename T>
     class BinaryTreeNode {
@@ -15,8 +14,6 @@
                 right = NULL;
         }
     };
-    
-***********************************************************/
 
 void inorder(BinaryTreeNode<int> * root, int &count) {
     //base case
