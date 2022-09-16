@@ -105,7 +105,7 @@ class Solution{
     //Function to store the zig zag order traversal of tree in a list.
     vector <int> zigZagTraversal(Node* root)
     {
-    	vector<int> result;
+    	vector<int> result;  // For the final ans
     	if(root == NULL)
     	    return result;
     	

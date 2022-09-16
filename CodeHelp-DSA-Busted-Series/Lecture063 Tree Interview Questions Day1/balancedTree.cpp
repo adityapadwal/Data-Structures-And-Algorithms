@@ -123,7 +123,8 @@ class Solution{
         pair<bool,int> ans;
         ans.second = max(left.second, right.second) + 1;
         
-        if(leftAns && rightAns && diff) {
+        if(leftAns && rightAns && diff) 
+        {
            ans.first = true;
         }
         else
@@ -138,7 +139,6 @@ class Solution{
     }
     
 };
-
 
 // { Driver Code Starts.
 

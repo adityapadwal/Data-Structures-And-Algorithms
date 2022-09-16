@@ -95,7 +95,7 @@ Node* buildTree(string str)
 class Solution {
   public:
     vector <int> bottomView(Node *root) {
-         vector<int> ans;
+        vector<int> ans;
         if(root == NULL) 
         {
             return ans;

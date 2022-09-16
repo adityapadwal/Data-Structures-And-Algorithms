@@ -105,12 +105,13 @@ class Solution
     //from left to right in Binary Tree.
     vector<int> topView(Node *root)
     {
-        vector<int> ans;
+        vector<int> ans;   // For the final answer
         if(root == NULL) 
         {
             return ans;
         }
         
+        //  hd  node->data
         map<int,int> topNode;
         queue<pair<Node*, int> > q;
         

@@ -43,7 +43,7 @@ class Solution
     void solve(Node* root, vector<int> &ans, int level) {
     //base case
     if(root == NULL)
-        return ;
+        return;
        
     //we entered into a new level    
     if(level == ans.size())

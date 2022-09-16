@@ -106,7 +106,7 @@ class Solution
         map<int, map<int, vector<int> > > nodes;
         //          node        hd   lvl 
         queue< pair<Node*, pair<int,int> > > q;    // queue for level order traversal 
-        vector<int> ans; // for resturning the answer
+        vector<int> ans; // for returning the answer
         
         if(root == NULL)
             return ans;

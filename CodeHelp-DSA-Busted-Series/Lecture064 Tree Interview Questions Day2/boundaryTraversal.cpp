@@ -107,7 +107,7 @@ public:
     void traverseLeft(Node* root, vector<int> &ans) {
         //base case
         if( (root == NULL) || (root->left == NULL && root->right == NULL) )
-            return ;
+            return;
             
         ans.push_back(root->data);
         if(root->left)
