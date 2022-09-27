@@ -1,8 +1,11 @@
-// { Driver Code Starts
-//Initial Template for C++
+/*
+Question: Leaf at same level (GfG)
+Given a Binary Tree, check if all leaves are at same level or not.
+*/
 
-#include<bits/stdc++.h> 
-using namespace std; 
+//{ Driver Code Starts
+#include <bits/stdc++.h>
+using namespace std;
 
 // Tree Node
 struct Node
@@ -88,11 +91,8 @@ Node* buildTree(string str)
 }
 
 
- // } Driver Code Ends
-//User function Template for C++
-
-//Node Structure
-/*
+// } Driver Code Ends
+/* The structure of the binary tree is as follows
 struct Node
 {
     int data;
@@ -103,47 +103,57 @@ struct Node
 
 class Solution{
   public:
-    //Function to return the maximum sum of non-adjacent nodes.
-    pair<int,int> solve(Node* root) {
-        //base case
-        if(root == NULL) {
-            pair<int,int> p = make_pair(0,0);
-            return p;
+    /*You are required to complete this method*/
+    int level = -1;
+    bool b = true;
+    
+    void solve(Node* root, int l)
+    {
+        // using recrsion 
+        // base case 
+        if(!root || !b)
+        {
+            return;
         }
         
-        pair<int,int> left = solve(root->left);
-        pair<int,int> right = solve(root->right);
+        if(!root->left && !root->right)
+        {
+            if(level != -1 && level != l)
+            {
+                b = false;
+            }
+            else
+            {
+                level = l;
+            }
+        }
         
-        pair<int,int> res;
-        
-        res.first = root->data + left.second + right.second;
-        
-        res.second = max(left.first, left.second) + max(right.first, right.second);   // imp to understand
-        
-        return res;
-        
+        solve(root->left, l+1);
+        solve(root->right, l+1);
     }
-    int getMaxSum(Node *root) 
+    bool check(Node *root)
     {
-        pair<int,int> ans = solve(root);
-        return max(ans.first, ans.second);
+        solve(root, 0);
+        return b;
     }
 };
 
-// { Driver Code Starts.
-
-// Driver code 
+//{ Driver Code Starts.
+// Driver program to test size function
 int main()
 {
-  int t;
-  scanf("%d ",&t);
-  while (t--)
-  {
+    int t;
+    cin>> t;
+    getchar();
+    while (t--)
+    {
         string s;
-		getline(cin,s);
-		Node* root = buildTree(s);
-		Solution ob;
-        cout<<ob.getMaxSum(root)<<endl;
-  }
-  return 0;
-}  // } Driver Code Ends
+        getline( cin, s );
+        Node* head = buildTree( s );
+        Solution obj;
+        cout << obj.check(head) << endl;
+    }
+    return 0;
+}
+
+// } Driver Code Ends

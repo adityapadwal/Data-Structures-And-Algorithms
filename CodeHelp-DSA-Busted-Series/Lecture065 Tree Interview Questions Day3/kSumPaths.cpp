@@ -102,7 +102,7 @@ class Solution{
     void solve(Node* root, int k, int &count, vector<int> path) {
         //base case
         if(root == NULL)
-            return ;
+            return;
         
         path.push_back(root->data);
         
@@ -121,6 +121,7 @@ class Solution{
                 count++;
         }
         
+        // while going back
         path.pop_back();
     }
     int sumK(Node *root,int k)
