@@ -135,18 +135,23 @@ class Solution {
               Node* front = q.front();
               q.pop();
               
+              // check left side
               if(front->left && !visited[front->left])
               {
                   flag = 1;
                   q.push(front->left);
                   visited[front->left] = true;
               }
+
+            //   check right side
               if(front->right && !visited[front->right])
               {
                   flag = 1;
                   q.push(front->right);
                   visited[front->right] = true;
               }
+
+            //   check parent
               if(nodeToParent[front] && !visited[nodeToParent[front]])
               {
                   flag = 1;
@@ -167,7 +172,7 @@ class Solution {
     {
         // Algo
         // 1. Create node to parent mapping 
-        // 2. Find the target node
+        // 2. Find the target node 
         // 3. Burn the tree in minimum time 
         
         map<Node*, Node*>nodeToParent;
