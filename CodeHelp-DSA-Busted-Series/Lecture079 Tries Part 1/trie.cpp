@@ -46,11 +46,13 @@ class Trie
 //      present
         if(root->children[index] != NULL)
         {
+            // aage badho
             child = root->children[index];
         }
         else
         {
             // absent
+            // create and aage badho
             child = new TrieNode(word[0]);
             root->children[index] = child;
         }
@@ -105,10 +107,12 @@ class Trie
         int index = word[0] - 'A';
         TrieNode* child;
 
-        if(root->children[index] != NULL) {
+        if(root->children[index] != NULL) 
+        {
             child = root->children[index];
         }
-        else {
+        else 
+        {
             // absent
             std::cout << "Word not found!! Unable to delete!!\n";
             return;
@@ -144,7 +148,6 @@ int main()
     t->deleteWord("DO");
     cout<<"After deleting  'DO': "<<endl;
     cout<<"Present or Not:  "<<t->searchWord("DO")<<endl;
-
 
 return 0;
 }
