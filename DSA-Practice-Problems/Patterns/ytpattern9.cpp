@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
 int i, j, n;
-char a= 'A';
+char a = 'A';
 cout<<"Kitna?: ";
 cin>>n;
 for(i=1; i<=n; i++)

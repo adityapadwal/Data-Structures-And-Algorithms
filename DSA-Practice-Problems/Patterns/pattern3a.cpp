@@ -6,7 +6,7 @@ int main()
 int num;
 int i, j;
 int cnt;
-cout<<"\n Enter how manuy lines?: ";
+cout<<"\n Enter how many lines?: ";
 cin>>num;
 for(cnt=1, i=1; i<=num; i++)
 {

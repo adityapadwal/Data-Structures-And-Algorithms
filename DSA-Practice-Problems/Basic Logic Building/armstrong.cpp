@@ -1,3 +1,5 @@
+// Armstrong number = sum of the cube of its digits
+
 #include<iostream>
 using namespace std;
 
