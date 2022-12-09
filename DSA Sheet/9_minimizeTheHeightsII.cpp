@@ -53,3 +53,5 @@ int main() {
     return 0;
 }
 // } Driver Code Ends
+
+// https://practice.geeksforgeeks.org/problems/minimize-the-heights3351/1
