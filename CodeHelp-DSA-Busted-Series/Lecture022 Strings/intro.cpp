@@ -5,7 +5,7 @@ char toLowerCase(char ch) {
     if(ch >='a' && ch <='z')
         return ch;
     else{
-        char temp = ch - 'A' + 'a';
+        char temp = ch - 'A' + 'a';   // V important
         return temp;
     }
 }
@@ -74,7 +74,7 @@ char getMaxOccCharacter(string s) {
 }
 
 int main( ) {
-/*
+
     char name[20];
 
     cout << "Enter your name " << endl;
@@ -92,9 +92,8 @@ int main( ) {
 
     cout <<" Palindrome or Not: " << checkPalindrome(name, len) << endl;
 
-    cout << " CHARACTER is " << toLowerCase('b') << endl;
+    cout << " CHARACTER is " << toLowerCase('B') << endl;
     cout << " CHARACTER is " << toLowerCase('C') << endl;
-    */
 
    string s;
    cin >> s;

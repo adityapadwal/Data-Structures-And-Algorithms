@@ -32,7 +32,7 @@ void revName(char name[], int count)
 }
 int main()
 {
-    string a="Aditya";
+    string a = "Aditya";
     cout<<a;
     char name[100];
     getName(name);

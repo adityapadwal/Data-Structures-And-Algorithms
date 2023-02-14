@@ -8,6 +8,7 @@
         "utility": "cpp",
         "valarray": "cpp",
         "chrono": "cpp",
-        "complex": "cpp"
+        "complex": "cpp",
+        "string": "cpp"
     }
 }
