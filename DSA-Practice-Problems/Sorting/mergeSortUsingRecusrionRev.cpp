@@ -65,6 +65,7 @@ void merge(int* arr, int s, int e)
     delete []first;
     delete []second;
 }
+
 void mergeSort(int* arr, int s, int e)
 {
     // base case 
@@ -88,7 +89,7 @@ void mergeSort(int* arr, int s, int e)
 int main()
 {
     int arr[]={5,4,3,2,1,0};
-    int n =6;
+    int n = 6;
 
     mergeSort(arr, 0, n-1);
 

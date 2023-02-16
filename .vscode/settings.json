@@ -9,6 +9,7 @@
         "valarray": "cpp",
         "chrono": "cpp",
         "complex": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "iostream": "cpp"
     }
 }

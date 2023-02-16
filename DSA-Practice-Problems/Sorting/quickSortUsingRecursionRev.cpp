@@ -7,7 +7,7 @@ using namespace std;
 int partition(int* arr, int s, int e)
 {
     int pivot = arr[s];
-    int cnt =0;
+    int cnt = 0;
     for(int i=s+1 ; i<=e; i++)
     {
         if(arr[i] <= pivot)
@@ -20,7 +20,7 @@ int partition(int* arr, int s, int e)
     int pivotIndex = s + cnt;
     swap(arr[pivotIndex], arr[s]);
 
-    // sorting the left and figt side of pivot!
+    // sorting the left and right side of pivot!
     int i=s;
     int j=e;
     while(i<pivotIndex && j>pivotIndex)
