@@ -23,6 +23,7 @@ for(int i=0; i<n; i++)
     {
         cout<<"Key found! ";
         flag=1;
+        break;
     }
     else
     {
