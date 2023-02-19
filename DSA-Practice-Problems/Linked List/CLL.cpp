@@ -105,7 +105,7 @@ void insertMiddle(Node* &tail)
     temp->next = p;
 }
 
-Node* getStartingNode(Node* head)
+Node* getStartingNode(Node* &head)
 {
     if(head == NULL)
     return NULL;

@@ -8,7 +8,7 @@ class Node
 
     Node()
     {
-        next==NULL;
+        next=NULL;
     }
 };
 

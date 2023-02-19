@@ -25,6 +25,7 @@ void createList(Node* &head, int n)
         Node*p = new Node();
         cout<<"\n Enter data: ";
         cin>>p->data;
+        p->next = NULL;
         while(temp->next != NULL)
         {
             temp = temp->next;
@@ -39,7 +40,7 @@ void displayList(Node* &head)
     Node* temp = head;
     while(temp != NULL)
     {
-        cout<<" => "<<temp->data;
+        cout<<" <=> "<<temp->data;
         temp = temp->next;
     }
 }

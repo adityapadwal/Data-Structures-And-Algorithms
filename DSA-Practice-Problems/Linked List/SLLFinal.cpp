@@ -1,6 +1,7 @@
 #include<iostream>
 #include<map>
 using namespace std;
+
 class Node
 {
     public:
@@ -8,7 +9,7 @@ class Node
     Node* next;
     Node()
     {
-        next == NULL;
+        next = NULL;
     }
 };
 
@@ -132,10 +133,11 @@ void deleteMiddle(Node* &head)
         temp = temp->next;
     }
     q = temp->next;
-    temp->next = temp->next->next;
+    temp->next = q->next;  // temp->next = temp->next->next
     q->next = NULL;
     delete q;
 }
+
 void deleteLast(Node* head)
 {
     Node* temp = head;
@@ -246,7 +248,7 @@ int main()
             case 3:
             {
                 insertFront(head);
-                cout<<"|n Data added successfully! ";
+                cout<<"\n Data added successfully! ";
                 break;
             }
 
