@@ -8,6 +8,7 @@ int main()
 char a[20];
 cout<<"\n Enter string a: ";
 cin.getline(a, 40);
+// cin>>a;
 char b[20];
 cout<<"\n Enter string b: ";
 cin.getline(b, 40);

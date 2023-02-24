@@ -49,7 +49,7 @@ void insertFront(Node* &head)
     head = p;
 }
 
-bool floydDetectLoop(Node* head)
+bool floydDetectLoop(Node* head)   // this function return true in case of a circular linked List
 {
     if (head == NULL);
     return false;

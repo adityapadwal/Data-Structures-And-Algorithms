@@ -14,11 +14,11 @@ void bubbleSort(int* arr, int n)
                 arr[j+1] = temp;
             }
         }
-        cout<<"\n";
-        for(int i=0; i<n; i++)
-        {
-            cout<<arr[i]<<" ";
-        }
+        // cout<<"\n";
+        // for(int i=0; i<n; i++)
+        // {
+        //     cout<<arr[i]<<" ";
+        // }
     }
 }
 
@@ -40,11 +40,11 @@ void bubbleSort_op(int* arr, int n)
                 flag = true;
             }
         }
-        cout<<"\n";
-        for(int i=0; i<n; i++)
-        {
-            cout<<arr[i]<<" ";
-        }
+        // cout<<"\n";
+        // for(int i=0; i<n; i++)
+        // {
+        //     cout<<arr[i]<<" ";
+        // }
         if(flag == false)
         {
             break;
