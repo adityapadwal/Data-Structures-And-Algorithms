@@ -1,3 +1,5 @@
+// not working 
+// need to solve using DP
 int countDistinctWayToClimbStair(long long nStairs)
 {
     //base case

@@ -1,43 +1,46 @@
 #include<iostream>
 using namespace std;
 
-void print(int arr[], int s, int e) {
-
-    for(int i=s; i<=e; i++) {
-        cout << arr[i] << " ";
-    } cout << endl;
-}
-
-bool binarySearch(int *arr, int s, int e , int k ) {
-
-    //base case
-
-    //element not found
+bool binarySearch(int *arr, int s, int e,int key)
+{
+    //Base case
     if(s>e)
+    {
         return false;
-
-    int mid = s + (e-s)/2;
-
-    //element found
-    if(arr[mid] == k)
+    }
+    int mid = s+(e-s)/2;
+    
+    //Processing
+    if(arr[mid] == key)
+    {
         return true;
+    }
 
-    if(arr[mid] < k) {
-        return binarySearch(arr, mid+1, e, k);
+    //Recursive relation
+    else if(arr[mid]>key)
+    {
+        bool ans = binarySearch(arr,s,mid-1,key);
+        return ans;
     }
     else{
-        return binarySearch(arr, s, mid-1, k);
+        bool ans = binarySearch(arr,mid+1,e,key);
+        return ans;
     }
 }
 
-
-int main() {
-
-    int arr[11] = {2,4,6,10,14,18,22,38,49,55,222};
-    int size = 11;
-    int key = 222;
-
-    cout << "Present or not " << binarySearch(arr, 0, size-1, key) << endl;
-
-    return 0;
+int main()
+{
+    int arr[5];
+    int key;
+    cin>>key;
+    for(int i = 0;i<5;i++)
+    {
+        cin>>arr[i];
+    }
+    int ans = binarySearch(arr, 0, 4, key);
+    if(ans)
+     cout<<ans<<endl;
+    else
+     cout<<"Not found"<<endl; 
 }
+//https://www.codingninjas.com/codestudio/problems/binary-search_972?leftPanelTab=1&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_11
