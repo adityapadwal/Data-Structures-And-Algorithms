@@ -25,7 +25,10 @@ int power(int a, int b) {
 int main() {
 
     int a,b;
-    cin >> a >> b;
+    cout<<"\n Enter first element: ";
+    cin >> a;
+    cout<<"\n Enter second element: ";
+    cin>>b;
     cout << endl;
     int ans = power(a,b);
 

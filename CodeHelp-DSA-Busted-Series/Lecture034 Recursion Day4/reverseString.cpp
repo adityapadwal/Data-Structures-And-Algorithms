@@ -9,9 +9,9 @@ void reverse(string& str, int i, int j ) {
     if(i>j)
         return ;
 
-    swap(str[i], str[j]);
-    i++;
-    j--;
+    swap(str[i++], str[j--]);
+    // i++;
+    // j--;
 
     //Recursive call
     reverse(str,i,j);
