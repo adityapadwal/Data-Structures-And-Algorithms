@@ -1,3 +1,7 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
 class Solution {
 private:
     void solve(string digit, string output, int index, vector<string>& ans, string mapping[] ) {
@@ -7,7 +11,7 @@ private:
             ans.push_back(output);
             return;
         }
-        
+         
         int number = digit[index] - '0';
         string value = mapping[number];
         
@@ -16,7 +20,6 @@ private:
             solve(digit, output, index+1, ans, mapping);
             output.pop_back();
         }
-        
     }
 public:
     vector<string> letterCombinations(string digits) {
@@ -30,3 +33,5 @@ public:
         return ans;
     }
 };
+
+// https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/

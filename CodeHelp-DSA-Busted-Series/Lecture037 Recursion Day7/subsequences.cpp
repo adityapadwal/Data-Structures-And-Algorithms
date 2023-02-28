@@ -1,3 +1,7 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
 void solve(vector<string>& ans, string str, string output, int i) {
     //base case
     if(i>=str.length()) {
@@ -21,3 +25,5 @@ vector<string> subsequences(string str){
     return ans;
 	
 }
+
+// https://www.codingninjas.com/codestudio/problems/subsequences-of-string_985087

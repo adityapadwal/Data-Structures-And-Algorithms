@@ -1,3 +1,7 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
 class Solution {
 private:
     void solve(vector<int> nums, vector<int> output, int index, vector<vector<int> >& ans) {
@@ -28,3 +32,4 @@ public:
         
     }
 };
+// https://leetcode.com/problems/subsets/
