@@ -11,6 +11,8 @@
         "complex": "cpp",
         "string": "cpp",
         "iostream": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "deque": "cpp",
+        "vector": "cpp"
     }
 }
