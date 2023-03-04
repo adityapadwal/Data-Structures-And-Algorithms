@@ -32,6 +32,7 @@ bool isCyclicDFS(int node, int parent, unordered_map<int, bool>&visited, unorder
         }
         else if(neighbour != parent)
         {
+            // condition for cycle => visited[neighbour] == true && neighbour != parent 
             // cycle detected
             return true;
         }
@@ -62,3 +63,5 @@ string cycleDetection (vector<vector<int>>& edges, int n, int m)
     }
     return "No";
 }
+
+// https://www.codingninjas.com/codestudio/problems/cycle-detection-in-undirected-graph_1062670?leftPanelTab=0
