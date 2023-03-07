@@ -1,4 +1,3 @@
-// Not working
 #include<iostream>
 #include <unordered_map>
 #include<list>
@@ -65,7 +64,7 @@ vector<int> topologicalSort(vector<vector<int>> &edges, int v, int e)  {
     createAdjList(edges, adjList);
 
     // vector for storing the indegree
-    vector<int>indegree;
+    vector<int>indegree(v);
     // Finding indegree
     findIndegree(indegree, adjList);
 
