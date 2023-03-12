@@ -5,7 +5,8 @@
 #include<iostream>
 using namespace std;
 
-int detectCycleInDirectedGraph(int n, vector < pair < int, int >> & edges) {    unordered_map<int,list<int>>adj;
+int detectCycleInDirectedGraph(int n, vector < pair < int, int >> & edges) {    
+    unordered_map<int,list<int>>adj;
     
     for(int i=0;i<edges.size();i++){
         int u=edges[i].first-1;
@@ -42,9 +43,17 @@ int detectCycleInDirectedGraph(int n, vector < pair < int, int >> & edges) {    
         }
     }
      if(cnt==n)
-        return false;                                                  
+     {
+         // we have got a valid topological sort
+         // So, the graph is acyclic 
+         // return false as no cycles are present
+        return false;   \
+     }
     else
     {
+        // we have got invalid topological sort
+        // So, the graph is cyclic
+        // return true as cycle is present
         return true;
     }     
 }
