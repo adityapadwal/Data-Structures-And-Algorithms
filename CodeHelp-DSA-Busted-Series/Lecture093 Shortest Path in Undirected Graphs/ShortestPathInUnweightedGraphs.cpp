@@ -21,7 +21,7 @@ void bfsTraversal(unordered_map<int, list<int>>&adjList, vector<bool>&visited, v
 {
 	q.push(src);
 	visited[src] == true;
-	parent[src] == -1;
+	parent[src] = -1;
 
 	while(!q.empty())
 	{
