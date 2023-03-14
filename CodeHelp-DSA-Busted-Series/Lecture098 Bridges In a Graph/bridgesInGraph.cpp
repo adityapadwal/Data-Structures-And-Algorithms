@@ -1,4 +1,9 @@
 #include<bits/stdc++.h>
+#include<iostream>
+#include<vector>
+#include<unordered_map>
+#include<list>
+using namespace std;
 
 void createList(vector<vector<int>>&edges, unordered_map<int, list<int>>&adj, int e)
 {
