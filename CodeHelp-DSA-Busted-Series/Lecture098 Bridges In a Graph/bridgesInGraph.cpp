@@ -1,31 +1,40 @@
-#include<iostream>
-#include<unordered_map>
-#include<list>
-#include<vector>
-using namespace std;
+#include<bits/stdc++.h>
 
-void dfs(int node, int parent, vector<int>&disc, vector<int>&low, int &timer, unordered_map<int, bool>&visited, unordered_map<int,list<int>>&adj, vector<vector<int>>&result)
+void createList(vector<vector<int>>&edges, unordered_map<int, list<int>>&adj, int e)
+{
+    for(int i=0; i<e; i++)
+    {
+        int u = edges[i][0];
+        int v = edges[i][1];
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+}
+
+void dfs(int node, int parent, int &timer, unordered_map<int, list<int>>&adj, unordered_map<int, bool>&visited, vector<int>&disc, vector<int>&low, vector<vector<int>>&result)
 {
     visited[node] = true;
-    disc[node] = low[node] = timer;
+    low[node] = disc[node] = timer;
     timer++;
 
     for(auto neighbour: adj[node])
     {
-        if(neighbour == parent)
+        if(parent == neighbour)
         {
+            // ignore 
             continue;
         }
+
         if(!visited[neighbour])
         {
-            dfs(neighbour, node, disc, low, timer, visited, adj, result);
-            
-            // while going back 
+            // dfs call to the neighbour
+            dfs(neighbour, node, timer, adj, visited, disc, low, result);
+
+            // after returning, update low of node
             low[node] = min(low[node], low[neighbour]);
-            // check if the edge is a bridge or not
+            // check for the bridge condition
             if(low[neighbour] > disc[node])
             {
-                // the edge is a bridge
                 vector<int>ans;
                 ans.push_back(node);
                 ans.push_back(neighbour);
@@ -34,48 +43,50 @@ void dfs(int node, int parent, vector<int>&disc, vector<int>&low, int &timer, un
         }
         else
         {
-            // visited[node] == true and node != parent
-            // back edge condition
-            // therefore update low
+            // visited[neighbour] == true && parent != neighbour
+            // back edge is present
             low[node] = min(low[node], disc[neighbour]);
         }
     }
 }
-vector<vector<int>> findBridges(vector<vector<int>> &edges, int v, int e) {
-    // adjacency list 
-    unordered_map<int,list<int>>adj;
-    for(int i=0;i<edges.size();i++)
-    {
-        int u=edges[i][0];
-        int v=edges[i][1];
-        adj[u].push_back(v);
-        adj[v].push_back(u);
-    }
 
-    int timer = 0;
-    vector<int>disc(v);
-    vector<int>low(v);
-    int parent = -1;
-    unordered_map<int, bool>visited;
+vector<vector<int>> findBridges(vector<vector<int>> &edges, int v, int e) {
+    // adjacency list
+    unordered_map<int, list<int>> adj;
+    createList(edges, adj, e);
+
+    // parent tracker
+    int parent;
+    // timer
+    int timer;
+    // discovery data structure
+    vector<int> disc(v);
+    // low (earliest possible time to reach the node) data structure
+    vector<int> low(v);
+    // visited data structure
+    unordered_map<int, bool> visited(v);
+    // for the final ans
     vector<vector<int>>result;
 
-    for(int i=0; i<v; i++)
+    // initializations
+    timer = 0;
+    parent = -1;
+    for (int i=0; i<v; i++)
     {
-        disc[i] = -1;
-        low[i] = -1;
-        // visited[i] = false;
+    disc[i] = -1;
+    low[i] = -1;
+    visited[i] = false;
     }
 
-    // dfs
+    // dfs call 
     for(int i=0; i<v; i++)
     {
         if(!visited[i])
         {
-            dfs(i, parent, disc, low, timer, visited, adj, result);
+            dfs(i, parent, timer, adj, visited, disc, low, result);
         }
     }
 
+    // return final answer
     return result;
 }
-
-// https://www.codingninjas.com/codestudio/problems/bridges-in-graph_893026?leftPanelTab=1
