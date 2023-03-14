@@ -90,3 +90,5 @@ vector<vector<int>> findBridges(vector<vector<int>> &edges, int v, int e) {
     // return final answer
     return result;
 }
+
+// https://www.codingninjas.com/codestudio/problems/bridges-in-graph_893026?leftPanelTab=0
