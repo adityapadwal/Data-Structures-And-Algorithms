@@ -69,4 +69,5 @@ int detectCycleInDirectedGraph(int n, vector < pair < int, int >> & edges) {
   return false;
 }
 
+// Rev
 // https://www.codingninjas.com/codestudio/problems/detect-cycle-in-a-directed-graph_1062626?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar
