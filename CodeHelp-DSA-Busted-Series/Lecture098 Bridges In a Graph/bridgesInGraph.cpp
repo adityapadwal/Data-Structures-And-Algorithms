@@ -76,11 +76,11 @@ vector<vector<int>> findBridges(vector<vector<int>> &edges, int v, int e) {
     // initializations
     timer = 0;
     parent = -1;
-    for (int i=0; i<v; i++)
+    for(int i=0; i<v; i++)
     {
-    disc[i] = -1;
-    low[i] = -1;
-    visited[i] = false;
+        disc[i] = -1;
+        low[i] = -1;
+        visited[i] = false;
     }
 
     // dfs call 
@@ -96,4 +96,5 @@ vector<vector<int>> findBridges(vector<vector<int>> &edges, int v, int e) {
     return result;
 }
 
+// Rev
 // https://www.codingninjas.com/codestudio/problems/bridges-in-graph_893026?leftPanelTab=0

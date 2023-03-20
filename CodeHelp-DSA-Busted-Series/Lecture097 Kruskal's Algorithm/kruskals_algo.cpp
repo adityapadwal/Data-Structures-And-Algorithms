@@ -73,7 +73,7 @@ int minimumSpanningTree(vector<vector<int>>& edges, int n)
     int u = findParent(edges[i][0], parent);
     int v = findParent(edges[i][1], parent);
     int weight = edges[i][2];
-    // if u and ve lie in same components, ignore
+    // if u and v lie in same components, ignore
 
     if(u != v)
     {
@@ -85,4 +85,5 @@ int minimumSpanningTree(vector<vector<int>>& edges, int n)
   return minWeight;
 }
 
+// Rev
 // https://www.codingninjas.com/codestudio/problems/minimum-spanning-tree_631769?topList=love-babbar-dsa-sheet-problems&leftPanelTab=1

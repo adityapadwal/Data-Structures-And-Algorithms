@@ -1,83 +1,85 @@
-#include<iostream>
-#include<vector>
-#include<unordered_map>
-#include<list>
-#include<stack>
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+#include <list>
+#include <stack>
 using namespace std;
 
-#include<bits/stdc++.h>
-void dfs(int node,unordered_map<int,bool>&visited,stack<int>&s, unordered_map<int,list<int>> &adjlist)
+#include <bits/stdc++.h>
+void dfs(int node, unordered_map<int, bool> &visited, stack<int> &s, unordered_map<int, list<int>> &adjlist)
 {
-      visited[node]=true;
-    for(auto nbr:adjlist[node])
+    visited[node] = true;
+    for (auto nbr : adjlist[node])
     {
-        if(!visited[nbr])
+        if (!visited[nbr])
         {
-            dfs(nbr,visited,s,adjlist);
+            dfs(nbr, visited, s, adjlist);
         }
     }
-    //topological logic
-    s.push(node);    
+    // topological logic
+    s.push(node);
 }
 
-void transdfs(int node,unordered_map<int,bool>&visited,unordered_map<int, list<int>> &adjlist)
+void transdfs(int node, unordered_map<int, bool> &visited, unordered_map<int, list<int>> &adjlist)
 {
-    visited[node]=true;
-     for(auto nbr:adjlist[node])
+    visited[node] = true;
+    for (auto nbr : adjlist[node])
     {
-        if(!visited[nbr])
+        if (!visited[nbr])
         {
-            transdfs(nbr,visited,adjlist);
+            transdfs(nbr, visited, adjlist);
         }
-    }  
+    }
 }
 
 int stronglyConnectedComponents(int v, vector<vector<int>> &edges)
 {
-      // adj list
-  unordered_map<int, list<int>> adjlist;
-  for (int i = 0; i < edges.size(); i++) {
-    int u = edges[i][0];
-    int v = edges[i][1];
+    // adj list
+    unordered_map<int, list<int>> adjlist;
+    for (int i = 0; i < edges.size(); i++)
+    {
+        int u = edges[i][0];
+        int v = edges[i][1];
 
-    adjlist[u].push_back(v);
-  }
-   //step 1: sort all node  
-    //topological sort
-    stack<int>s;
-    unordered_map<int,bool>visited;
-    for(int i=0;i<v;i++)
-    {     
-        if(!visited[i])
+        adjlist[u].push_back(v);
+    }
+    // step 1: sort all node
+    // topological sort
+    stack<int> s;
+    unordered_map<int, bool> visited;
+    for (int i = 0; i < v; i++)
+    {
+        if (!visited[i])
         {
-            dfs(i,visited,s,adjlist);
+            dfs(i, visited, s, adjlist);
         }
     }
-    
-    //step 2:
-    //create transpose
-    unordered_map<int,list<int>>transpose;
-    for(int i=0;i<v;i++){
-          visited[i]=0;
-    for(auto nbr:adjlist[i])
+
+    // step 2:
+    // create transpose
+    unordered_map<int, list<int>> transpose;
+    for (int i = 0; i < v; i++)
     {
-        transpose[nbr].push_back(i);
+        visited[i] = 0;
+        for (auto nbr : adjlist[i])
+        {
+            transpose[nbr].push_back(i);
+        }
     }
-    }
-    //step 3:
-      //call dfs using above ordering (transpose ordering)
-    int count=0;
-   while(!s.empty())
-   {
-       int top=s.top();
-       s.pop();
-       if(!visited[top])
-       {
+    // step 3:
+    // call dfs using above ordering (transpose ordering)
+    int count = 0;
+    while (!s.empty())
+    {
+        int top = s.top();
+        s.pop();
+        if (!visited[top])
+        {
             count++;
-           transdfs(top,visited,transpose);  
-       }
-   }
-    return count;    
+            transdfs(top, visited, transpose);
+        }
+    }
+    return count;
 }
 
 // *************************** My Code, not working******************************
@@ -109,7 +111,7 @@ int stronglyConnectedComponents(int v, vector<vector<int>> &edges)
 // // Main Function
 // int stronglyConnectedComponents(int v, vector<vector<int>> &edges)
 // {
-// 	// adjacency list 
+// 	// adjacency list
 // 	unordered_map<int, list<int>>adj;
 // 	for(int i=0; i<edges.size(); i++)
 // 	{
@@ -149,7 +151,7 @@ int stronglyConnectedComponents(int v, vector<vector<int>> &edges)
 // 	// dfs traversal
 // 	while(!st.empty())
 // 	{
-// 		int top = st.top();  
+// 		int top = st.top();
 // 		st.pop();
 // 		if(!vis[top]);
 // 		{
@@ -157,8 +159,10 @@ int stronglyConnectedComponents(int v, vector<vector<int>> &edges)
 // 			dfs(top, transpose, vis);
 // 		}
 // 	}
-	
+
 // 	// returning the final answer
 // 	return result;
 // }
 
+// Rev
+// https://www.codingninjas.com/codestudio/problems/count-strongly-connected-components-kosaraju-s-algorithm_1171151?leftPanelTab=0
