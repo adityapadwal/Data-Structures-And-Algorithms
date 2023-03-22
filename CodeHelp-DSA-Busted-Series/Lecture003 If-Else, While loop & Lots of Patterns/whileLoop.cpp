@@ -4,6 +4,7 @@ using namespace std;
 int main() {
 
     int n;
+    cout<<"\n Enter number: ";
     cin>>n;
 
     int i = 1;
@@ -16,3 +17,5 @@ int main() {
     }
 
 }
+
+// Rev

@@ -37,8 +37,6 @@ int main() {
    cout<<" enter the value of a "<<endl;
    cin>>a;
 
-
-
    if(a>0) {
        cout<<" A is positive"<< endl;
    }
@@ -49,6 +47,5 @@ int main() {
        cout<<" A is 0"<<endl;
    }
 
-
-
+    // Rev
 }

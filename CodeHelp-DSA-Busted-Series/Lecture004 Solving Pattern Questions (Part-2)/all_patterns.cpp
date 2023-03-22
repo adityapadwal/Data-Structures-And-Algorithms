@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 void pattern1();
@@ -216,7 +215,7 @@ void pattern4()
     {
         for (j = 1; j <= side; j++)
         {
-            cout << (side - j + 1) << "  ";
+            cout << (side - j + 1) << "  ";   // Remember
         }
         cout << endl;
     }
@@ -268,7 +267,7 @@ void pattern6()
 
     for (i = 1; i <= height; i++)
     {
-        for (j = 1; j <= i; j++)
+        for (j = 1; j <= i; j++)   // Remember
         {
             cout << ch << "  ";
         }
@@ -391,7 +390,7 @@ void pattern10()
 
 void pattern11()
 {
-    // Inverted Alphabetic Triangle Pattern
+    // Inverted Alphabetic Triangle Pattern 
     cout << endl;
     cout << "You are going to see inverted alphabetic triangle pattern:- " << endl;
 
@@ -545,3 +544,5 @@ void pattern15()
         cout << endl;
     }
 }
+
+// Rev
