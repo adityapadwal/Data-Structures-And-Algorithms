@@ -7,3 +7,6 @@ int findUnique(int *arr, int size)
     }
     return ans;
 }
+
+// Rev 
+// https://www.codingninjas.com/codestudio/problems/find-unique_625159

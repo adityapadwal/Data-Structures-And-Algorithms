@@ -19,3 +19,6 @@ public:
         return cnt<=1;
     }
 };
+
+// Rev
+//https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/

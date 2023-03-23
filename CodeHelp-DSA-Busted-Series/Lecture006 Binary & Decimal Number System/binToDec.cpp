@@ -2,7 +2,6 @@
 #include<math.h>
 using namespace std;
 
-
 int main() {
 
     int n;
@@ -25,3 +24,5 @@ int main() {
     cout<< ans << endl;
     return 0;
 }
+
+// Rev

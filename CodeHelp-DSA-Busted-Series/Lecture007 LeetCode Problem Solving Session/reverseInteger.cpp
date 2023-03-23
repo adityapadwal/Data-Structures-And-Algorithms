@@ -5,7 +5,7 @@ public:
     int reverse(int x) {
         
         int ans  = 0;
-        while( x != 0) {
+        while(x != 0) {
             
             int digit = x % 10;
             
@@ -20,3 +20,6 @@ public:
         return ans;
     }
 };
+
+// Rev
+// https://leetcode.com/problems/reverse-integer/
