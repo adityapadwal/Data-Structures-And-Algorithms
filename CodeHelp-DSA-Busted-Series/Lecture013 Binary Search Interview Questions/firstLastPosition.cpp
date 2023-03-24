@@ -9,7 +9,7 @@ int firstOcc(vector<int>& arr, int n, int key) {
 
         if(arr[mid] == key){
             ans = mid;
-            e = mid - 1;
+            e = mid - 1;      // Important step
         }
         else if(key > arr[mid]) {//Right me jao
             s = mid + 1;
@@ -32,7 +32,7 @@ int lastOcc(vector<int>& arr, int n, int key) {
 
         if(arr[mid] == key){
             ans = mid;
-            s = mid + 1;
+            s = mid + 1;         // Important step
         }
         else if(key > arr[mid]) {//Right me jao
             s = mid + 1;
@@ -48,9 +48,12 @@ int lastOcc(vector<int>& arr, int n, int key) {
 
 pair<int, int> firstAndLastPosition(vector<int>& arr, int n, int k)
 {
-    pair<int,int> p;
+    pair<int,int> p; // for storing the answer
     p.first = firstOcc(arr, n, k);
     p.second = lastOcc(arr, n, k);
     
     return p;
 }
+
+// //https://www.codingninjas.com/codestudio/problems/first-and-last-position-of-an-element-in-sorted-array_1082549?source=youtube&campaign=love_babbar_codestudio2&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_codestudio2&leftPanelTab=1
+// Rev

@@ -9,7 +9,7 @@ int getPivot(int arr[], int n) {
 
     while(s<e) {
 
-        if(arr[mid] >= arr[0])
+        if(arr[mid] >= arr[0])   
         {
             s = mid+1;
         }
@@ -23,5 +23,8 @@ int getPivot(int arr[], int n) {
 
 int main() {
     int arr[5] = {1, 3, 8, 10, 17};
-    cout << "Pivot is " << getPivot(arr, 5) << endl;
+    int arrr[5] = {10, 17, 1, 3, 8};
+    cout << "Pivot is " << getPivot(arrr, 5) << endl;
 }
+
+// Rev

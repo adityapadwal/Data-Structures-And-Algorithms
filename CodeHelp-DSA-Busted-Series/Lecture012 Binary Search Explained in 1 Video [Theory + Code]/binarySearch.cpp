@@ -63,3 +63,5 @@ int findPeak(int arr[], int n) {
     }
     return s;
 }
+
+// Rev
