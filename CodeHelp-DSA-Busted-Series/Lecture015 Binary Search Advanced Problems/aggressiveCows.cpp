@@ -1,3 +1,8 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+
 bool isPossible(vector<int> &stalls, int k, int mid, int n) {
     
     int cowCount = 1;
@@ -39,3 +44,5 @@ int aggressiveCows(vector<int> &stalls, int k)
     }
     return ans;
 }
+
+// https://www.codingninjas.com/codestudio/problems/aggressive-cows_1082559?source=youtube&campaign=love_babbar_codestudio2
