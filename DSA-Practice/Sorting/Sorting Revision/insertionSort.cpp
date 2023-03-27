@@ -19,7 +19,13 @@ void insertionSort(int* arr, int n)
             }
         }
         arr[j+1] = temp;
-    }
+
+        cout<<"\n";
+        for(int i=0; i<n; i++)
+        {
+            cout<<arr[i]<<" ";
+        }
+    } 
 }
 
 int main()

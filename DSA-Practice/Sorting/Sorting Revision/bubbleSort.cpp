@@ -67,8 +67,8 @@ int main()
         cin>>arr[i];
     }
 
-    // bubbleSort(arr, n);
-    bubbleSort_op(arr, n);
+    bubbleSort(arr, n);
+    // bubbleSort_op(arr, n);
     cout<<"\n ";
     cout<<"\n Displaying Sorted ELements \n";
     for(int i=0; i<n; i++)
@@ -82,3 +82,5 @@ return 0;
 The above function always runs O(N2) time even if the array is sorted. 
 It can be optimized by stopping the algorithm if the inner loop didn’t cause any swap. 
 */
+
+// Rev

@@ -14,6 +14,12 @@ void selectionSort(int* arr, int n)
             }
         }
         swap(arr[minIndex], arr[i]);
+
+        cout<<"\n";
+        for(int i=0; i<n; i++)
+        {
+            cout<<arr[i]<<" ";
+        }
     }
 }
 
@@ -40,3 +46,5 @@ int main()
     } 
 return 0;
 }
+
+// Rev

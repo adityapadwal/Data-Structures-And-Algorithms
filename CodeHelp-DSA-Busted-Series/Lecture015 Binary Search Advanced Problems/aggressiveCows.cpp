@@ -46,3 +46,4 @@ int aggressiveCows(vector<int> &stalls, int k)
 }
 
 // https://www.codingninjas.com/codestudio/problems/aggressive-cows_1082559?source=youtube&campaign=love_babbar_codestudio2
+// Rev

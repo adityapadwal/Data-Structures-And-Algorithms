@@ -54,3 +54,4 @@ int allocateBooks(vector<int> arr, int n, int m) {
 }
 
 // https://www.codingninjas.com/codestudio/problems/ayush-and-ninja-test_1097574?source=youtube&campaign=love_babbar_codestudio2
+// Rev
