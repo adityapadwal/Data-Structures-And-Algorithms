@@ -1,4 +1,7 @@
-#include<iostream> 
+#include<iostream>
+#include<math.h>
+#include<algorithm>
+#include<limits.h>
 using namespace std; 
 
 bool isPresent(int arr[][3], int target, int row, int col) {
