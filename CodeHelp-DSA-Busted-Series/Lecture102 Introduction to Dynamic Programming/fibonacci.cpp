@@ -70,8 +70,7 @@ int main()
 {
     int n;
     cin>>n;
-    
-    // creating an array for memoization 
+      
     vector<int>dp(n+1, -1);
     
     dp[0] = 0;
