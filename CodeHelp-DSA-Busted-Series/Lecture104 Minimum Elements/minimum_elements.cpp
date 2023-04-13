@@ -122,3 +122,5 @@ int minimumElements(vector<int> &num, int x)
     int ans = solve(num, x);
     return ans;
 }
+
+// https://www.codingninjas.com/codestudio/problems/minimum-elements_3843091
