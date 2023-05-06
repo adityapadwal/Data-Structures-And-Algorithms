@@ -35,3 +35,4 @@ int countDistinctWays(int nStairs) {
 }
 
 // https://www.codingninjas.com/codestudio/problems/count-ways-to-reach-nth-stairs_798650?leftPanelTab=0
+// Revised

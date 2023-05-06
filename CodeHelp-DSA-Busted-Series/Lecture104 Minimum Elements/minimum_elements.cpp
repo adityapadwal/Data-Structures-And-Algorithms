@@ -89,7 +89,7 @@ int minimumElements(vector<int> &num, int x)
     }
 }
 
-// Approach 3: Uisng Tabulation 
+// Approach 3: Using Tabulation 
 int solve(vector<int>&num, int x)
 {
     vector<int>dp(x+1, INT_MAX);
@@ -124,3 +124,4 @@ int minimumElements(vector<int> &num, int x)
 }
 
 // https://www.codingninjas.com/codestudio/problems/minimum-elements_3843091
+// Revised

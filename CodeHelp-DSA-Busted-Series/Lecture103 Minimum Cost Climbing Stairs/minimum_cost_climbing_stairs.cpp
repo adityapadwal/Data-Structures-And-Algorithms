@@ -100,7 +100,7 @@ private:
 
         for(int i=2; i<n; i++)
         {
-            int curr = cost[i] + min(prev1 + prev2);
+            int curr = cost[i] + min(prev1 , prev2);
         
             prev2 = prev1;
             prev1 = curr;
@@ -117,3 +117,4 @@ public:
 };
 
 // https://leetcode.com/problems/min-cost-climbing-stairs/description/
+// Revised
