@@ -115,3 +115,4 @@ int cutSegments(int n, int x, int y, int z) {
 }
 
 // https://www.codingninjas.com/codestudio/problems/cut-into-segments_1214651?topList=love-babbar-dsa-sheet-problems&leftPanelTab=1
+// Revised
