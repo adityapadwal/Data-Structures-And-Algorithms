@@ -104,3 +104,4 @@ long long int countDerangements(int n) {
 }
 
 // https://www.codingninjas.com/codestudio/problems/count-derangements_873861?leftPanelTab=1
+// Revised
