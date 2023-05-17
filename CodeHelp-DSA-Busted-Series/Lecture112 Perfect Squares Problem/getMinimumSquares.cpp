@@ -167,3 +167,5 @@ int main(){
 	return 0;
 }
 // } Driver Code Ends
+
+// https://practice.geeksforgeeks.org/problems/get-minimum-squares0538/1
