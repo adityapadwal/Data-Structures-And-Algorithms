@@ -59,6 +59,87 @@ class Solution
         return dp[curr][prev+1];
     }
     
+    int solveTab(int a[], int n)
+    {
+        vector<vector<int>>dp(n+1, vector<int>(n+1, 0));
+        
+        for(int curr=n-1; curr>=0; curr--)
+        {
+            for(int prev=curr-1; prev>=-1; prev--)
+            {
+                // include 
+                int take = 0;
+                if(prev == -1 || a[curr] > a[prev])
+                {
+                    take = 1 + dp[curr+1][curr+1];
+                }
+                
+                // exclude
+                // a[curr] < a[prev]
+                int notTake = 0 + dp[curr+1][prev+1];
+                
+                dp[curr][prev+1] = max(take, notTake);
+            }
+        }
+        return dp[0][0];
+    }
+    
+    int solveSo(int a[], int n)
+    {
+        vector<int>currRow(n+1, 0);
+        vector<int>nextRow(n+1, 0);
+        
+        for(int curr=n-1; curr>=0; curr--)
+        {
+            for(int prev=curr-1; prev>=-1; prev--)
+            {
+                // include 
+                int take = 0;
+                if(prev == -1 || a[curr] > a[prev])
+                {
+                    take = 1 + nextRow[curr+1];
+                }
+                
+                // exclude
+                // a[curr] < a[prev]
+                int notTake = 0 + nextRow[prev+1];
+                
+                currRow[prev+1] = max(take, notTake);
+            }
+            nextRow = currRow;
+        }
+        return nextRow[0];
+    }
+    
+    int solveOptimal(int n, int a[])
+    {
+        // base case 
+        if(n == 0)
+        {
+            return 0;
+        }
+        
+        vector<int>ans;
+        
+        // put the first element into the ans array
+        ans.push_back(a[0]);
+        
+        for(int i=1; i<n; i++)
+        {
+            if(a[i] > ans.back())
+            {
+                ans.push_back(a[i]);
+            }
+            else
+            {
+                // arr[i] > ans.back()
+                int index = lower_bound(ans.begin(), ans.end(), a[i]) - ans.begin();
+                ans[index] = a[i];
+            }
+        }
+        return ans.size();
+    }
+    
     //Function to find length of longest increasing subsequence.
     int longestSubsequence(int n, int a[])
     {
@@ -69,10 +150,22 @@ class Solution
         // return finalAns;
         
         // Method 2: Memoization
-        int curr = 0;
-        int prev = -1;
-        vector<vector<int>>dp(n, vector<int>(n+1, -1));
-        int finalAns = solveMem(a, n, curr, prev, dp);
+        // int curr = 0;
+        // int prev = -1;
+        // vector<vector<int>>dp(n, vector<int>(n+1, -1));
+        // int finalAns = solveMem(a, n, curr, prev, dp);
+        // return finalAns;
+        
+        // Method 3: Tabulation
+        // int finalAns = solveTab(a, n);
+        // return finalAns;
+        
+        // Method 4: Space Optimization
+        // int finalAns = solveSo(a, n);
+        // return finalAns;
+        
+        // Method 5: Optimal Code
+        int finalAns = solveOptimal(n, a);
         return finalAns;
     }
 };
@@ -99,3 +192,5 @@ int main()
 }
 
 // } Driver Code Ends
+
+// https://practice.geeksforgeeks.org/problems/longest-increasing-subsequence-1587115620/1
