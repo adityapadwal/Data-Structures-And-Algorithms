@@ -7,7 +7,7 @@
 using namespace std;
 
 class Solution {
-private:
+public:
     vector<int> nextSmallerElement(vector<int> arr, int n) {
         stack<int> s;
         s.push(-1);
@@ -44,7 +44,6 @@ private:
         return ans; 
     }
     
-public:
     int largestRectangleArea(vector<int>& heights) {
         int n= heights.size();
         
@@ -67,6 +66,31 @@ public:
         }
         return area;
     }
+
+    int maximalRectangle(vector<vector<char>>& matrix) {
+        int maxi = INT_MIN;
+
+        vector<int>histogram(matrix[0].size(), 0);
+
+        for(int i=0; i<matrix.size(); i++)
+        {
+            for(int j=0; j<histogram.size(); j++)
+            {
+                if(matrix[i][j] == '1')
+                {
+                    histogram[j]++;
+                }
+                else
+                {
+                    histogram[j] = 0;
+                }
+            }
+            maxi = max(maxi, largestRectangleArea(histogram));
+        }
+        return maxi;
+    }
 };
 
-// https://leetcode.com/problems/largest-rectangle-in-histogram/description/
+// https://leetcode.com/problems/maximal-rectangle/description/
+// Very hard (Revise)
+// Refer lecture 56 (Largest Rectangle is a histogram)
