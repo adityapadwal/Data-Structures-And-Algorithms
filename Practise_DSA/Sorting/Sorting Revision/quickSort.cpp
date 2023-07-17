@@ -1,42 +1,30 @@
 #include<iostream>
 using namespace std;
+
 int partition(int * arr, int s, int e)
 {
     int pivot = arr[s];
-    int cnt = 0;
-
-    for(int i=s+1; i<=e; i++)
-    {
-        if(arr[i] <= pivot)
-        {
-            cnt++;
-        }
-    }
-
-    int pivotIndex = cnt + s;
-    swap(arr[s], arr[pivotIndex]);
-
-    // sort right and left side of pivotIndex
-    int i = s;
+    int i = s + 1; // Start from the element right after the pivot
     int j = e;
 
-    while((i<pivotIndex) && (j>pivotIndex))
+    while (i <= j)
     {
-        while(arr[i] < arr[pivotIndex])
-        {
+        while (i <= e && arr[i] <= pivot) // Find the element greater than pivot
             i++;
-        }
-        while(arr[j] > arr[pivotIndex])
-        {
+
+        while (j > s && arr[j] > pivot) // Find the element smaller or equal to pivot
             j--;
-        }
-        if((i<pivotIndex) && (j>pivotIndex))
+
+        if (i < j)
         {
-            swap(arr[i], arr[j]);
+            swap(arr[i], arr[j]); // Swap the elements found above
             i++;
             j--;
         }
     }
+
+    int pivotIndex = j; // j is the correct position for the pivot element
+    swap(arr[s], arr[pivotIndex]); // Place the pivot in its correct position
     return pivotIndex;
 }
 

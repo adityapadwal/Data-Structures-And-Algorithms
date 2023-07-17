@@ -15,4 +15,5 @@ void selectionSort(vector<int>& arr, int n)
     }
 }
 
-// Rev
+// https://www.codingninjas.com/studio/problems/selection-sort_981162?source=youtube&campaign=love_babbar_codestudio2&leftPanelTab=0
+// Revised

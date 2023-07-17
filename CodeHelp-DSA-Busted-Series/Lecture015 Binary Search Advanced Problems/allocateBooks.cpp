@@ -53,4 +53,4 @@ long long ayushGivesNinjatest(int n, int m, vector<int> time)
 }
 
 // https://www.codingninjas.com/codestudio/problems/ayush-and-ninja-test_1097574?source=youtube&campaign=love_babbar_codestudio2&leftPanelTab=0
-// Rev
+// Revised

@@ -55,5 +55,5 @@ int findLargestMinDistance(vector<int> &boards, int k)
 	return mid;
 }	   	
 
-// https://www.codingninjas.com/codestudio/problems/painter's-partition-problem_1089557?source=youtube&campaign=love_babbar_codestudio2
-// Rev
+// https://www.codingninjas.com/codestudio/problems/painters-partition-problem_1089557?source=youtube&campaign=love_babbar_codestudio2
+// Revised
