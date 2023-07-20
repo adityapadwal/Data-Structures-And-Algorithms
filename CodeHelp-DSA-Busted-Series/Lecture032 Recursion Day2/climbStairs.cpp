@@ -15,3 +15,5 @@ int countDistinctWayToClimbStair(long long nStairs)
     
     return ans;
 }
+
+// //https://www.codingninjas.com/codestudio/problems/count-ways-to-reach-nth-stairs_798650?utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_10

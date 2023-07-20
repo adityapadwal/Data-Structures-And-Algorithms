@@ -94,3 +94,5 @@ vector<vector<int>> nQueens(int n)
     
     return ans;
 }
+
+// https://www.codingninjas.com/studio/problems/n-queens_759332?leftPanelTab=1

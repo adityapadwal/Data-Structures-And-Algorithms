@@ -16,7 +16,7 @@ private:
             swap(nums[index],nums[j]);
             solve(nums,ans,index+1);
             //backtrack
-            swap(nums[index],nums[j]);
+            swap(nums[index],nums[j]); //backtracking
         }
     }
 public:
@@ -28,5 +28,5 @@ public:
     }
 };
 
-
+// Backtracking
 // https://leetcode.com/problems/permutations/description/

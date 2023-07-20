@@ -66,3 +66,5 @@ void solveSudoku(vector<vector<int>>& sudoku)
 {
 	solve(sudoku);
 }
+
+// https://www.codingninjas.com/studio/problems/sudoku-solver_699919

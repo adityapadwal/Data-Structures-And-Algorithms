@@ -18,15 +18,15 @@ private:
         for(int i=0; i<value.length(); i++) {
             output.push_back(value[i]);
             solve(digit, output, index+1, ans, mapping);
-            output.pop_back();
+            output.pop_back(); // backtrack
         }
     }
 public:
     vector<string> letterCombinations(string digits) {
-        vector<string> ans;
+        vector<string> ans; // for the final answer
         if(digits.length()==0)
             return ans;
-        string output;
+        string output; // temporary ans
         int index = 0;
         string mapping[10] = {"", "", "abc", "def", "ghi", "jkl","mno","pqrs","tuv","wxyz"};
         solve(digits, output, index, ans, mapping);
@@ -34,4 +34,5 @@ public:
     }
 };
 
+// example of backtracking
 // https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/

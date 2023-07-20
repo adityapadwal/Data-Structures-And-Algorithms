@@ -15,7 +15,7 @@ public:
         
         while(start<=end) {
             
-            int element = matrix[mid/col][mid%col];
+            int element = matrix[mid/col][mid%col];  //v important formula
             
             if(element == target) {
                 return 1;
@@ -28,8 +28,11 @@ public:
             {
                 end = mid-1;
             }
-             mid = start + (end-start)/2;    
+            mid = start + (end-start)/2;    
         }
         return 0;
     }
 };
+
+// searching in a 2D matrix using binary search
+// https://leetcode.com/problems/search-a-2d-matrix/description/

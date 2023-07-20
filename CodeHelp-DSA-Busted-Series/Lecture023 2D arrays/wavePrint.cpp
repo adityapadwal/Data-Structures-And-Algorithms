@@ -26,3 +26,5 @@ vector<int> wavePrint(vector<vector<int> > arr, int nRows, int mCols)
     }
     return ans;
 }
+
+// https://www.codingninjas.com/studio/problems/print-like-a-wave_893268?leftPanelTab=0
