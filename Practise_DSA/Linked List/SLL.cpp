@@ -79,7 +79,7 @@ void insertEnd(Node* &head)
     {
         temp = temp->next;
     }
-    Node* p = head;
+    Node* p = new Node();
     cout<<"\n Enter data: ";
     cin>>p->data;
     temp->next = p;
@@ -117,7 +117,7 @@ void deleteLast(Node* &head)
     {
         temp = temp->next;
     }
-    temp->next = p;
+    p = temp->next;
     temp->next = NULL;
     delete p;
 }
@@ -135,8 +135,8 @@ bool searchRecord(Node* &head, int s)
         {
             temp = temp->next;
         }
-        return false;
     }
+    return false;
 }
 
 int main()

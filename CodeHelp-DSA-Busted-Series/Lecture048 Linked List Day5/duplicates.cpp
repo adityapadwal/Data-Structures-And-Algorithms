@@ -1,6 +1,7 @@
-/************************************************************
+#include<bits/stdc++.h>
+using namespace std;
 
-    Following is the linked list node structure.
+    // Following is the linked list node structure.
     
     class Node 
     {
@@ -14,8 +15,6 @@
             this->next = NULL;
         }
     };
-    
-************************************************************/
 
 Node * uniqueSortedList(Node * head) {
    	//empty List
@@ -41,3 +40,5 @@ Node * uniqueSortedList(Node * head) {
     
     return head; 
 }
+
+// //https://www.codingninjas.com/codestudio/problems/unique-sorted-list_2420283?leftPanelTab=0

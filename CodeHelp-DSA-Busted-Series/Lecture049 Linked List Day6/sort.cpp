@@ -1,17 +1,21 @@
-/********************************
-    class Node
+#include<bits/stdc++.h>
+using namespace std;
+
+    // Following is the linked list node structure.
+    
+    class Node 
     {
-    public:
+        public:
         int data;
-        Node *next;
-        Node(int data)
+        Node* next;
+
+        Node(int data) 
         {
             this->data = data;
             this->next = NULL;
         }
     };
 
-********************************/
 void insertAtTail(Node* &tail, Node* curr ) {
     tail -> next = curr;
     tail = curr;
@@ -64,9 +68,11 @@ Node* sortList(Node *head)
     head = zeroHead -> next;
     
     //delete dummy nodes
-    delete zeroHead;
+    delete zeroHead; 
     delete oneHead;
     delete twoHead;
     
     return head;
 }
+
+// https://www.codingninjas.com/codestudio/problems/sort-linked-list-of-0s-1s-2s_1071937?leftPanelTab=0

@@ -86,7 +86,7 @@ void insertMiddle(Node* &head)
     p->next = temp->next;
     p->next->prev = p;
     temp->next = p;
-    temp->next->prev = p;
+    temp->next->prev = temp;
 }
 
 void insertRear(Node* &head)

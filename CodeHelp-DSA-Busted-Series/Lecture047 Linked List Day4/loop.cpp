@@ -1,18 +1,19 @@
-/*************************************************
-    
-    class Node {
-        public :
+#include <bits/stdc++.h>
+using namespace std;
 
-        int data;
-        Node *next;
+// Following is the Linked List node structure
 
-        Node(int data) {
-            this -> data = data;
-            this -> next = NULL;
-        }
-    };
-
-*************************************************/
+class Node
+{
+public:
+    int data;
+    Node *next;
+    Node(int data)
+    {
+        this->data = data;
+        this->next = NULL;
+    }
+};
 
 Node* floydDetectLoop(Node* head) {
 

@@ -49,7 +49,9 @@ void insertFront(Node* &head)
     head = p;
 }
 
-bool floydDetectLoop(Node* head)   // this function return true in case of a circular linked List
+// this function return true in case of a circular linked List
+// slow - fast concept
+bool floydDetectLoop(Node* head)   
 {
     if (head == NULL);
     return false;
