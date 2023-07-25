@@ -1,88 +1,84 @@
-/********************************************************************
-
-    Following is the representation of the Singly Linked List Node:
-
-    class node{
-        public:
-            int data;
-            node * next;
-            node(int data){
-                this->data=data;
-                this->next=NULL;
-            }
-    };
-    
-********************************************************************/
-
-node* findMid(node* head) {
+#include<iostream>
+using namespace std;
+struct node {
+    int data;
+    struct node* next;
+    node(int x) {
+        data = x;
+        next = NULL;
+    }
+};
+node* findMiddle(node* head)
+{
+    node* fast = head->next;
     node* slow = head;
-    node* fast = head -> next;
-    
-    while(fast != NULL && fast -> next != NULL) {
-        slow = slow -> next;
-        fast = fast -> next -> next; 
+    while(fast!=NULL && fast->next!=NULL)
+    {
+        fast = fast->next->next;
+        slow = slow->next;
     }
     return slow;
 }
 
-node* merge(node* left, node* right) {
-    
+node* merge(node* left, node* right)
+{
     if(left == NULL)
+    {
         return right;
+    }
     
     if(right == NULL)
+    {
         return left;
+    }
     
     node* ans = new node(-1);
     node* temp = ans;
-    
-    //merge 2 sorted Linked List
-    while(left != NULL && right != NULL) {
-        if(left -> data < right -> data ) {
-            temp -> next = left;
-            temp = left;
-            left = left -> next;
-        }
-        else
+    //Merge two sorted LL
+    while(left!=NULL && right!=NULL)
+    {
+        if(left->data < right->data)
         {
-            temp -> next = right;
+            temp->next = left;
+            temp = left;
+            left = left->next;
+        }
+        else{
+            temp->next = right;
             temp = right;
-            right = right -> next;
+            right = right->next;
         }
     }
     
-    while(left != NULL) {
-        temp -> next = left;
-        temp = left;
-        left = left -> next;
+    while(left!=NULL)
+    {
+       temp->next = left;
+       temp = left;
+       left = left->next; 
     }
     
-    while(right != NULL) {
-        temp -> next = right;
-        temp = right;
-        right = right -> next;
+    while(right!=NULL)
+    {
+       temp->next = right;
+       temp = right;
+       right = right->next; 
     }
-    
-    ans = ans -> next;
+    ans =ans->next;
     return ans;
-    
 }
-
-
 node* mergeSort(node *head) {
-    //base case
-    if( head == NULL || head -> next == NULL ) {
+    //Base case
+    if(head == NULL || head->next == NULL)
+    {
         return head;
     }
-    
-    // break linked list into 2 halvs, after finding mid
-    node* mid = findMid(head);
-    
+    //Break linkedlist in 2 halves
+    node* mid = findMiddle(head);
     node* left = head;
     node* right = mid->next;
-    mid -> next = NULL;
+    mid->next = NULL;
     
-    //recursive calls to sort both halves
+    //Recursive calls
     left = mergeSort(left);
     right = mergeSort(right);
     
@@ -91,3 +87,7 @@ node* mergeSort(node *head) {
     
     return result;
 }
+
+//why we prefer merge sort in LL and quicl sort in arrays
+
+//https://www.codingninjas.com/codestudio/problems/mergesort-linked-list_630514?leftPanelTab=1
