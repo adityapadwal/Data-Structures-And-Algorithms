@@ -27,6 +27,7 @@ class Stack {
     }
 
     void pop() {
+        // Don't try to delete the top element
         if(top >=0 ) {
             top--;
         }

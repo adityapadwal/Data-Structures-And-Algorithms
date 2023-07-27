@@ -1,4 +1,5 @@
-#include<stack>
+#include<bits/stdc++.h>
+using namespace std;
 
 bool findRedundantBrackets(string &s)
 {
@@ -33,3 +34,5 @@ bool findRedundantBrackets(string &s)
     }
     return false;
 }
+
+// https://www.codingninjas.com/studio/problems/redundant-brackets_975473

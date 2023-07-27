@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 void sortedInsert(stack<int> &stack, int num) {
     //base case
     if(stack.empty() || (!stack.empty() && stack.top() < num) ) {
@@ -29,3 +32,5 @@ void sortStack(stack<int> &stack)
     
     	sortedInsert(stack, num);
 }
+
+// https://www.codingninjas.com/studio/problems/sort-a-stack_985275

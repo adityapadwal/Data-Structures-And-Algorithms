@@ -106,3 +106,5 @@ int main()
     }
 return 0;
 }
+
+// In stack using linked list, insertion and deletion both is done at the head of the linked list.

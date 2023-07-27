@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 
 void insertAtBottom(stack<int> &s, int element) {
     //basecase
@@ -29,3 +31,5 @@ void reverseStack(stack<int> &stack) {
     
     insertAtBottom(stack,num);
 }
+
+//https://www.codingninjas.com/codestudio/problems/reverse-stack-using-recursion_631875?topList=love-babbar-dsa-sheet-problems&leftPanelTab=1

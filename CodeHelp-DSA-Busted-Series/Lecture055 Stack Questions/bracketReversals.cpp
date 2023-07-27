@@ -1,4 +1,6 @@
-#include<stack>
+#include<bits/stdc++.h>
+using namespace std;
+
 int findMinimumCost(string str) {
   	
     //odd condition
@@ -38,8 +40,11 @@ int findMinimumCost(string str) {
             s.pop();
         }
         
-		int ans = (a+1)/2 + (b+1)/2;
+		int ans = (a+1)/2 + (b+1)/2; // important formula
         return ans;
     
     
 }
+
+
+// https://www.codingninjas.com/studio/problems/minimum-cost-to-make-string-valid_1115770

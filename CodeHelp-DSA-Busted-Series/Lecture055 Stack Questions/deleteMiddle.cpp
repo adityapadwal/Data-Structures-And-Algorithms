@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 
 void solve(stack<int>&inputStack, int count, int size) {
     //base case
@@ -20,5 +22,6 @@ void deleteMiddle(stack<int>&inputStack, int N){
 	
   	int count = 0;
     solve(inputStack, count, N);
-   
 }
+
+//https://www.codingninjas.com/codestudio/problems/delete-middle-element-from-stack_985246?leftPanelTab=1
