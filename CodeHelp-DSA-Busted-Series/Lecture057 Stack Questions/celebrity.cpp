@@ -98,3 +98,5 @@ int main()
     }
 }
   // } Driver Code Ends
+
+//https://practice.geeksforgeeks.org/problems/the-celebrity-problem/1

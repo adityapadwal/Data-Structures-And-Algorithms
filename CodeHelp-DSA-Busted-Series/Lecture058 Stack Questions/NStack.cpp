@@ -80,3 +80,5 @@ public:
         return arr[index];
     }
 };
+
+// https://www.codingninjas.com/codestudio/problems/n-stacks-in-an-array_1164271?topList=love-babbar-dsa-sheet-problems&leftPanelTab=1

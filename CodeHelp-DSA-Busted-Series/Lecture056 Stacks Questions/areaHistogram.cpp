@@ -7,65 +7,74 @@
 using namespace std;
 
 class Solution {
-private:
-    vector<int> nextSmallerElement(vector<int> arr, int n) {
-        stack<int> s;
+public:
+    vector<int>findNext(vector<int>arr, int n)
+    {
+        vector<int>ans(n);
+        stack<int>s;
         s.push(-1);
-        vector<int> ans(n);
 
-        for(int i=n-1; i>=0 ; i--) {
+        for(int i=n-1; i>=0; i--)
+        {
             int curr = arr[i];
-            while(s.top() != -1 && arr[s.top()] >= curr)
+            while(s.top()!=-1 && arr[s.top()] >= curr)
             {
                 s.pop();
             }
-            //ans is stack ka top
             ans[i] = s.top();
             s.push(i);
         }
         return ans;
     }
-    
-    vector<int> prevSmallerElement(vector<int> arr, int n) {
-        stack<int> s;
-        s.push(-1);
-        vector<int> ans(n);
 
-        for(int i=0; i<n; i++) {
+    vector<int>findPrev(vector<int>arr, int n)
+    {
+        vector<int>ans(n);
+        stack<int>s;
+        s.push(-1);
+
+        for(int i=0; i<n; i++)
+        {
             int curr = arr[i];
-            while(s.top() != -1 && arr[s.top()] >= curr)
+            while(s.top()!=-1 && arr[s.top()] >= curr)
             {
                 s.pop();
             }
-            //ans is stack ka top
             ans[i] = s.top();
             s.push(i);
         }
-        return ans; 
+        return ans;
     }
-    
-public:
+
     int largestRectangleArea(vector<int>& heights) {
-        int n= heights.size();
-        
-        vector<int> next(n);
-        next = nextSmallerElement(heights, n);
-            
-        vector<int> prev(n);
-        prev = prevSmallerElement(heights, n);
-        
-        int area = INT_MIN;
-        for(int i=0; i<n; i++) {
-            int l = heights[i];
-            
-            if(next[i] == -1) {
-                next[i] = n;
+        int n = heights.size();
+
+        // Step 1: Finding the next smaller elements ka array
+        vector<int>nextSmallerElements = findNext(heights, n);
+
+        // Step 2:Finding the previuos smaller elements ka array
+        vector<int>prevSmallerElements = findPrev(heights, n);
+
+        // Step 3: Finding the ans
+        int finalAns = INT_MIN;
+        for(int i=0; i<n; i++)
+        {
+            if(nextSmallerElements[i] == -1) // imp remember
+            {
+                nextSmallerElements[i] = n;
             }
-             int b = next[i] - prev[i] - 1;
-            int newArea = l*b;
-            area = max(area, newArea);
+
+            int length = heights[i];
+
+            // n-p-1
+            int breadth = nextSmallerElements[i] - prevSmallerElements[i] - 1;
+
+            int ans = length * breadth;
+
+            finalAns = max(finalAns, ans);
         }
-        return area;
+
+        return finalAns;
     }
 };
 

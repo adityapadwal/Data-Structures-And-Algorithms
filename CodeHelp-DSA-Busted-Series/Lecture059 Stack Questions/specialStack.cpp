@@ -1,5 +1,6 @@
-#include<stack>
-#include<limits.h>
+#include<bits/stdc++.h>
+using namespace std;
+
 class SpecialStack {
     // Define the data members.
 	stack<int> s;
@@ -70,3 +71,5 @@ class SpecialStack {
         return mini;
     }  
 };
+
+//https://www.codingninjas.com/codestudio/problems/design-a-stack-that-supports-getmin-in-o-1-time-and-o-1-extra-space_842465?topList=love-babbar-dsa-sheet-problems&leftPanelTab=1
