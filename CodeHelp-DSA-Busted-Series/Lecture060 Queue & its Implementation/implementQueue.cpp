@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 class Queue {
     
     int* arr;
@@ -41,9 +44,9 @@ public:
         }
         else
         {	int ans = arr[qfront];
-            arr[qfront] = -1;
+            arr[qfront] = -1; // not needed
             qfront++;
-            if(qfront==rear){
+            if(qfront==rear){    // v. v. imp
                 qfront = 0;
                 rear = 0;
             }
@@ -61,3 +64,5 @@ public:
         }
     }
 };
+
+//https://www.codingninjas.com/codestudio/problems/queue-using-array-or-singly-linked-list_2099908?leftPanelTab=1
