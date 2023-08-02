@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 queue<int> rev(queue<int> q)
 {
     stack<int> s;
@@ -15,3 +18,5 @@ queue<int> rev(queue<int> q)
     }
     return q;
 }
+
+// https://practice.geeksforgeeks.org/problems/queue-reversal/1

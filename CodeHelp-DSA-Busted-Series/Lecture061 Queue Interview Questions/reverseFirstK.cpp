@@ -60,3 +60,5 @@ queue<int> modifyQueue(queue<int> q, int k) {
     
     return q;
 }
+
+// https://practice.geeksforgeeks.org/problems/reverse-first-k-elements-of-queue/1
