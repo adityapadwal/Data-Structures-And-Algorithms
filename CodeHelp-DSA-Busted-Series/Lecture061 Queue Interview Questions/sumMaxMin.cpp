@@ -26,11 +26,7 @@ int solve(int *arr, int n, int k) {
 
     //remaining windows ko process karlo
     for(int i=k; i<n; i++) {
-
-        
-
         //next window
-
         //removal
         while(!maxi.empty() && i - maxi.front() >=k) {
             maxi.pop_front();
