@@ -1,3 +1,4 @@
+//{ Driver Code Starts
 //Initial Template for C++
 
 
@@ -84,7 +85,7 @@ Node* buildTree(string str) {
 }
 
 
- // } Driver Code Ends
+// } Driver Code Ends
 /* A binary tree node structure
 
 struct Node
@@ -102,45 +103,77 @@ struct Node
 
 class Solution{
     public:
-    //Function to check whether a binary tree is balanced or not.
-    pair<bool, int> isBalancedFast(Node* root) {
-                // base case
+    // Not optimized TC = O(N*N)
+    int height(Node* root)
+    {
         if(root == NULL)
         {
-            pair<bool, int> p = make_pair(true, 0);
+            return 0;
+        }
+        
+        int left = height(root->left);
+        int right = height(root->right);
+        
+        int ans = max(left, right) + 1;
+        return ans;
+    }
+    bool isBalanced(Node *root)
+    {
+        if(root == NULL)
+        {
+            return true;
+        }
+        
+        bool left = isBalanced(root->left);
+        bool right = isBalanced(root->right);
+        
+        int difference = abs(height(root->left) - height(root->right));
+        
+        if(left && right && difference<=1)
+        {
+            return 1;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    // Optimized TC = O(N) SC = O(N)
+    // The second value of the pair gives the height
+    pair<bool, int>fastBalanced(Node* root)
+    {
+        if(root == NULL)
+        {
+            pair<bool, int>p = make_pair(true, 0);
             return p;
         }
         
-        pair<int,int> left = isBalancedFast(root->left);
-        pair<int,int> right = isBalancedFast(root->right);
+        pair<bool ,int>left = fastBalanced(root->left);
+        pair<bool, int>right = fastBalanced(root->right);
         
-        
-        bool leftAns = left.first;
-        bool rightAns = right.first;
-        
-        bool diff = abs (left.second - right.second ) <=1;
-        
-        pair<bool,int> ans;
-        ans.second = max(left.second, right.second) + 1;
-        
-        if(leftAns && rightAns && diff) 
+        pair<bool, int>ans;
+        if(left.first == true && right.first == true && abs(left.second-right.second)<=1)
         {
-           ans.first = true;
+            ans.first = true;
         }
         else
         {
             ans.first = false;
         }
+        
+        ans.second = max(left.second, right.second) + 1;
         return ans;
     }
     bool isBalanced(Node *root)
     {
-        return isBalancedFast(root).first;
+        pair<bool, int>finalAns = fastBalanced(root);
+        return finalAns.first;
     }
-    
 };
 
-// { Driver Code Starts.
+
+//{ Driver Code Starts.
 
 /* Driver program to test size function*/
 
@@ -161,4 +194,7 @@ int main() {
     }
     return 0;
 }
-  // } Driver Code Ends
+
+// } Driver Code Ends
+
+//   //https://practice.geeksforgeeks.org/problems/check-for-balanced-tree/1

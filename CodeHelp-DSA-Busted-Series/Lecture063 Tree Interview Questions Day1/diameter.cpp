@@ -122,11 +122,13 @@ class Solution {
         int op3 = left.second + right.second + 1;
         
         pair<int,int> ans;
-        ans.first = max(op1, max(op2, op3));;
+        ans.first = max(op1, max(op2, op3));
         ans.second = max(left.second , right.second) + 1;
 
         return ans;
     }
+
+    // Main function starts here!
     int diameter(Node* root) {
     
         return diameterFast(root).first;
@@ -150,3 +152,5 @@ int main() {
     return 0;
 }
   // } Driver Code Ends
+
+//https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1
