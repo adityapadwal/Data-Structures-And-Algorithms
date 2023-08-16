@@ -32,7 +32,7 @@ int main() {
 
 string reverseWord(string str){
     
-//   uisng two pointer approach 
+//   using two pointer approach 
     int i = 0;
     int j = str.length() - 1;
     
@@ -50,3 +50,4 @@ string reverseWord(string str){
 }
 
 // https://practice.geeksforgeeks.org/problems/reverse-a-string/1
+//Rev
