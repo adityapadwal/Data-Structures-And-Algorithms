@@ -45,3 +45,5 @@ int main()
 // } Driver Code Ends
 
 // https://practice.geeksforgeeks.org/problems/kth-smallest-element5635/1
+// TC = O(NlogN)
+// SC = O(1)
