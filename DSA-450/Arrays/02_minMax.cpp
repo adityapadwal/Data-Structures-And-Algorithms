@@ -49,3 +49,5 @@ int main()
 
 // } Driver Code Ends
 // https://practice.geeksforgeeks.org/problems/max-min/1?utm_source=gfg&utm_medium=article&utm_campaign=bottom_sticky_on_article
+// TC = O(N)
+// SC = O(1)
