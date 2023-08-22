@@ -1,30 +1,20 @@
-// { Driver Code Starts
-//Initial Template for C++
-
-
 #include <bits/stdc++.h>
 using namespace std;
-#define MAX_HEIGHT 100000
 
-// Tree Node
+/* A binary tree node has data, pointer to left child
+   and a pointer to right child */
 struct Node {
     int data;
-    Node* left;
-    Node* right;
+    struct Node* left;
+    struct Node* right;
 };
-
-// Utility function to create a new Tree Node
 Node* newNode(int val) {
     Node* temp = new Node;
     temp->data = val;
     temp->left = NULL;
     temp->right = NULL;
-
     return temp;
 }
-
-
-// Function to Build Tree
 Node* buildTree(string str) {
     // Corner Case
     if (str.length() == 0 || str[0] == 'N') return NULL;
@@ -86,95 +76,81 @@ Node* buildTree(string str) {
 
 
  // } Driver Code Ends
-//User function Template for C++
-/*Structure of the node of the binary tree is as
-struct Node {
-    int data;
-    Node *left;
-    Node *right;
+/* Tree node structure  used in the program
 
-    Node(int val) {
-        data = val;
+struct Node
+{
+    int data;
+    struct Node* left;
+    struct Node* right;
+
+    Node(int x){
+        data = x;
         left = right = NULL;
     }
-};
-*/
+}; */
 
-class Solution{
-    public:
-    //Function to store the zig zag order traversal of tree in a list.
-    vector <int> zigZagTraversal(Node* root)
-    {
-    	vector<int> result;  // For the final ans
-    	if(root == NULL)
-    	    return result;
-    	
-    	queue<Node*> q;
-    	q.push(root);
-    	
-    	bool leftToRight = true;
-    	
-    	while(!q.empty()) {
-    	    
-    	    int size = q.size();
-    	    vector<int> ans(size);
-    	    
-    	    //Level Process
-    	    for(int i=0; i<size; i++) {
-    	        
-    	        Node* frontNode = q.front();
-    	        q.pop();
-    	        
-    	        //normal insert or reverse insert 
-    	        int index = leftToRight ? i : size - i - 1;
-    	        ans[index] = frontNode -> data;
-    	        
-    	        if(frontNode->left)
-    	            q.push(frontNode -> left);
-    	            
-    	        if(frontNode->right)
-    	            q.push(frontNode -> right);
-    	    }
-    	    
-    	    //direction change karni h
-    	    leftToRight = !leftToRight;
-    	   
-    	  for(auto i: ans) {
-    	      result.push_back(i);
-    	  }  
-    	}
-    	    return result;
+class Solution {
+  private:
+    int height(struct Node* node){
+        //base case
+        if(node == NULL) {
+            return 0;
+        }
+        
+        int left = height(node ->left);
+        int right = height(node->right);
+        
+        int ans = max(left, right) + 1;
+        return ans;
+    }
+  public:
+    // Function to return the diameter of a Binary Tree.
+    
+    pair<int,int> diameterFast(Node* root) {
+        //base case
+        if(root == NULL) {
+            pair<int,int> p = make_pair(0,0);
+            return p;
+        }
+        
+        pair<int,int> left = diameterFast(root->left);
+        pair<int,int> right = diameterFast(root->right);
+        
+        int op1 = left.first;
+        int op2 = right.first;
+        int op3 = left.second + right.second + 1;
+        
+        pair<int,int> ans;
+        ans.first = max(op1, max(op2, op3));
+        ans.second = max(left.second , right.second) + 1;
+
+        return ans;
+    }
+
+    // Main function starts here!
+    int diameter(Node* root) {
+    
+        return diameterFast(root).first;
+        
     }
 };
 
 // { Driver Code Starts.
 
 /* Driver program to test size function*/
-
-  
-
 int main() {
-
-   
     int t;
-    scanf("%d ", &t);
+    scanf("%d\n", &t);
     while (t--) {
-        string s, ch;
+        string s;
         getline(cin, s);
-        
         Node* root = buildTree(s);
-
-        vector<int> ans;
         Solution ob;
-        ans = ob.zigZagTraversal(root) ;
-
-        for (int i = 0; i < ans.size(); i++)
-            cout << ans[i] << " ";
-
-        cout << endl;
-     
+        cout << ob.diameter(root) << endl;
     }
     return 0;
 }
   // } Driver Code Ends
-//   https://practice.geeksforgeeks.org/problems/zigzag-tree-traversal/1
+
+//https://practice.geeksforgeeks.org/problems/diameter-of-binary-tree/1

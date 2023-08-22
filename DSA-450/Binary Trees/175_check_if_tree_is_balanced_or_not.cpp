@@ -1,10 +1,10 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 //Initial Template for C++
 
 
 #include <bits/stdc++.h>
 using namespace std;
-#define MAX_HEIGHT 100000
+
 
 // Tree Node
 struct Node {
@@ -85,69 +85,95 @@ Node* buildTree(string str) {
 }
 
 
- // } Driver Code Ends
-//User function Template for C++
-/*Structure of the node of the binary tree is as
-struct Node {
-    int data;
-    Node *left;
-    Node *right;
+// } Driver Code Ends
+/* A binary tree node structure
 
-    Node(int val) {
-        data = val;
+struct Node
+{
+    int data;
+    struct Node* left;
+    struct Node* right;
+    
+    Node(int x){
+        data = x;
         left = right = NULL;
     }
 };
-*/
+ */
 
 class Solution{
     public:
-    //Function to store the zig zag order traversal of tree in a list.
-    vector <int> zigZagTraversal(Node* root)
+    // Not optimized TC = O(N*N)
+    int height(Node* root)
     {
-    	vector<int> result;  // For the final ans
-    	if(root == NULL)
-    	    return result;
-    	
-    	queue<Node*> q;
-    	q.push(root);
-    	
-    	bool leftToRight = true;
-    	
-    	while(!q.empty()) {
-    	    
-    	    int size = q.size();
-    	    vector<int> ans(size);
-    	    
-    	    //Level Process
-    	    for(int i=0; i<size; i++) {
-    	        
-    	        Node* frontNode = q.front();
-    	        q.pop();
-    	        
-    	        //normal insert or reverse insert 
-    	        int index = leftToRight ? i : size - i - 1;
-    	        ans[index] = frontNode -> data;
-    	        
-    	        if(frontNode->left)
-    	            q.push(frontNode -> left);
-    	            
-    	        if(frontNode->right)
-    	            q.push(frontNode -> right);
-    	    }
-    	    
-    	    //direction change karni h
-    	    leftToRight = !leftToRight;
-    	   
-    	  for(auto i: ans) {
-    	      result.push_back(i);
-    	  }  
-    	}
-    	    return result;
+        if(root == NULL)
+        {
+            return 0;
+        }
+        
+        int left = height(root->left);
+        int right = height(root->right);
+        
+        int ans = max(left, right) + 1;
+        return ans;
+    }
+    bool isBalanced(Node *root)
+    {
+        if(root == NULL)
+        {
+            return true;
+        }
+        
+        bool left = isBalanced(root->left);
+        bool right = isBalanced(root->right);
+        
+        int difference = abs(height(root->left) - height(root->right));
+        
+        if(left && right && difference<=1)
+        {
+            return 1;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    // Optimized TC = O(N) SC = O(N)
+    // The second value of the pair gives the height
+    pair<bool, int>fastBalanced(Node* root)
+    {
+        if(root == NULL)
+        {
+            pair<bool, int>p = make_pair(true, 0);
+            return p;
+        }
+        
+        pair<bool ,int>left = fastBalanced(root->left);
+        pair<bool, int>right = fastBalanced(root->right);
+        
+        pair<bool, int>ans;
+        if(left.first == true && right.first == true && abs(left.second-right.second)<=1)
+        {
+            ans.first = true;
+        }
+        else
+        {
+            ans.first = false;
+        }
+        
+        ans.second = max(left.second, right.second) + 1;
+        return ans;
+    }
+    bool isBalanced(Node *root)
+    {
+        pair<bool, int>finalAns = fastBalanced(root);
+        return finalAns.first;
     }
 };
 
-// { Driver Code Starts.
+
+//{ Driver Code Starts.
 
 /* Driver program to test size function*/
 
@@ -163,18 +189,12 @@ int main() {
         getline(cin, s);
         
         Node* root = buildTree(s);
-
-        vector<int> ans;
         Solution ob;
-        ans = ob.zigZagTraversal(root) ;
-
-        for (int i = 0; i < ans.size(); i++)
-            cout << ans[i] << " ";
-
-        cout << endl;
-     
+        cout << ob.isBalanced(root) << endl;
     }
     return 0;
 }
-  // } Driver Code Ends
-//   https://practice.geeksforgeeks.org/problems/zigzag-tree-traversal/1
+
+// } Driver Code Ends
+
+//   //https://practice.geeksforgeeks.org/problems/check-for-balanced-tree/1
