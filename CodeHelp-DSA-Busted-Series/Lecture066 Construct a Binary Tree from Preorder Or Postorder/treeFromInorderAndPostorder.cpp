@@ -104,3 +104,5 @@ Node *buildTree(int in[], int post[], int n) {
     Node* ans = solve(in, post, postorderIndex, 0, n-1, n);
     return ans;
 }
+
+// https://practice.geeksforgeeks.org/problems/tree-from-postorder-and-inorder/1

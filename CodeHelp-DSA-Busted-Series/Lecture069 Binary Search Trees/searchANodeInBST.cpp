@@ -79,3 +79,4 @@ bool search(Node* root, int x) {
         return search(root->right, x);
     }
 }
+// https://www.codingninjas.com/codestudio/problems/search-in-bst_1402878?leftPanelTab=1

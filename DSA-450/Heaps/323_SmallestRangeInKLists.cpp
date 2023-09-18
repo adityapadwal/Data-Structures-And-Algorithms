@@ -81,3 +81,4 @@ int kSorted(vector<vector<int>> &a, int k, int n) {
 
 // https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/description/
 // https://www.codingninjas.com/studio/problems/smallest-range-from-k-sorted-list_1069356?leftPanelTab=0
+// https://practice.geeksforgeeks.org/problems/find-smallest-range-containing-elements-from-k-lists/1

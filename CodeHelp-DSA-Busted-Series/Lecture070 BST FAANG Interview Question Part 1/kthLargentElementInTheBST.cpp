@@ -1,176 +1,51 @@
-//{ Driver Code Starts
-#include <bits/stdc++.h>
-using namespace std;
-
-// Tree Node
-struct Node {
-    int data;
-    Node *left;
-    Node *right;
-
-    Node(int val) {
-        data = val;
-        left = right = NULL;
-    }
-};
-
-// Function to Build Tree
-Node* buildTree(string str)
-{   
-    // Corner Case
-    if(str.length() == 0 || str[0] == 'N')
-            return NULL;
+#include <bits/stdc++.h> 
+    // Following is the Binary Search Tree node structure
     
-    // Creating vector of strings from input 
-    // string after spliting by space
-    vector<string> ip;
-    
-    istringstream iss(str);
-    for(string str; iss >> str; )
-        ip.push_back(str);
-        
-    // Create the root of the tree
-    Node* root = new Node(stoi(ip[0]));
-        
-    // Push the root to the queue
-    queue<Node*> queue;
-    queue.push(root);
-        
-    // Starting from the second element
-    int i = 1;
-    while(!queue.empty() && i < ip.size()) {
-            
-        // Get and remove the front of the queue
-        Node* currNode = queue.front();
-        queue.pop();
-            
-        // Get the current node's value from the string
-        string currVal = ip[i];
-            
-        // If the left child is not null
-        if(currVal != "N") {
-                
-            // Create the left child for the current node
-            currNode->left = new Node(stoi(currVal));
-                
-            // Push it to the queue
-            queue.push(currNode->left);
+    template <typename T>
+    class TreeNode {
+        public :
+        T data;
+        TreeNode<T> *left;
+        TreeNode<T> *right;
+
+        TreeNode(T data) {
+            this -> data = data;
+            left = NULL;
+            right = NULL;
         }
-            
-        // For the right child
-        i++;
-        if(i >= ip.size())
-            break;
-        currVal = ip[i];
-            
-        // If the right child is not null
-        if(currVal != "N") {
-                
-            // Create the right child for the current node
-            currNode->right = new Node(stoi(currVal));
-                
-            // Push it to the queue
-            queue.push(currNode->right);
+
+        ~TreeNode() {
+            if(left)
+                delete left;
+            if(right)
+                delete right;
         }
-        i++;
-    }
-    
-    return root;
-}
+    };
 
-
-// } Driver Code Ends
-/*The Node structure is defined as
-struct Node {
-    int data;
-    Node *left;
-    Node *right;
-
-    Node(int val) {
-        data = val;
-        left = right = NULL;
-    }
-};
-*/
-
-// return the Kth largest element in the given BST rooted at 'root'
-class Solution
+int solve(TreeNode<int>* root, int &count, int k)
 {
-    private:
-    void findNodes(Node* root, int &count)
+    if(root == NULL)
     {
-        if(root == NULL)
-        {
-            return;
-        }
-        
-        findNodes(root->left, count);
-        count++;
-        findNodes(root->right, count);
+        return -1;
     }
-    
-    int solve(Node* root, int &countAns, int X)
-    {
-          // using recursion
-          // base case 
-          if(root == NULL)
-          {
-              return -1;
-          }
-          
-          // L
-          int left = solve(root->left, countAns, X);
-          if(left != -1)
-          {
-              return left;
-          }
-          
-          // N
-          countAns++;
-          if(countAns == X)
-          {
-              return root->data;
-          }
-          
-          // R
-          return solve(root->right, countAns, X);
-    }
-    
-    public:
-    int kthLargest(Node *root, int K)
-    {
-        // finding the total number of nodes in the tree
-        int count = 0;
-        findNodes(root, count);
-        
-        int X = count-K+1;
-        int countAns = 0;
-        int ans = solve(root, countAns, X);
-        return ans;
-    }
-};
 
-//{ Driver Code Starts.
-
-int main()
-{
-    int t;
-    cin>>t;
-    getchar();
-    
-    while(t--)
+    int right = solve(root->right, count, k);
+    if(right != -1)
     {
-        string s;
-        getline(cin,s);
-        Node* head = buildTree(s);
-        
-        int k;
-        cin>>k;
-        getchar();
-        
-        Solution ob;
-        cout << ob.kthLargest( head, k ) << endl;
+        return right;
     }
-    return 1;
+
+    count++;
+    if(count == k)
+    {
+        return root->data;
+    }
+    return solve(root->left, count, k);
 }
-// } Driver Code Ends
+int KthLargestNumber(TreeNode<int>* root, int k) 
+{
+    int count = 0;
+    int finalAns = solve(root, count, k);
+    return finalAns;
+}
+// https://www.codingninjas.com/studio/problems/k-th-largest-number_920438?leftPanelTab=0

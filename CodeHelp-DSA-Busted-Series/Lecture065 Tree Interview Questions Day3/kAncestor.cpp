@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -97,6 +97,7 @@ int main()
     }
     return 0;
 }
+
 // } Driver Code Ends
 
 
@@ -110,52 +111,37 @@ struct Node
 };
 */
 // your task is to complete this function
-Node* solve(Node* root, int &k, int node) {
-    //base case
+void solve(Node* root, int k, int node, vector<int>&ancestor, int &finalAns)
+{
     if(root == NULL)
-        return NULL;
-        
-    if(root->data == node) 
     {
-        return root;
+        return;
     }
     
-    Node* leftAns = solve(root->left, k, node);
-    Node* rightAns = solve(root->right, k, node);
-
-
-    //wapas
-    if(leftAns != NULL && rightAns == NULL) 
+    ancestor.push_back(root->data);
+    
+    solve(root->left, k, node, ancestor, finalAns);
+    solve(root->right, k, node, ancestor, finalAns);
+    
+    if(root->data == node)
     {
-        k--;
-        if(k<=0) 
+        int size = ancestor.size();
+        int index = size-1-k;
+        if(index >= 0)
         {
-            //answer lock
-            k = INT_MAX;
-            return root;
+            finalAns = ancestor[index];
+            return;
         }
-        return leftAns;
     }
     
-    if(leftAns == NULL && rightAns != NULL) {
-        k--;
-        if(k<=0) 
-        {
-            //answer lock
-            k = INT_MAX;
-            return root;
-        }
-        return rightAns;
-    }
-    return NULL;
-    
-
+    ancestor.pop_back();
 }
 int kthAncestor(Node *root, int k, int node)
 {
-    Node* ans = solve(root, k, node);
-    if(ans == NULL || ans->data == node)
-        return -1;
-    else
-        return ans->data;
+    vector<int>ancestor;
+    int finalAns = -1;
+    solve(root, k, node, ancestor, finalAns);
+    return finalAns;
 }
+
+// https://practice.geeksforgeeks.org/problems/kth-ancestor-in-a-tree/1

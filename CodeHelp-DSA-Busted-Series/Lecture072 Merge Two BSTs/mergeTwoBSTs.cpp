@@ -112,3 +112,4 @@ TreeNode<int> *mergeBST(TreeNode<int> *root1, TreeNode<int> *root2)
     int e = ans.size() - 1;
     return inorderToBST(s, e, ans);
 }
+// https://www.codingninjas.com/studio/problems/merge-two-bsts_920474?leftPanelTab=0

@@ -126,4 +126,4 @@ Node* LCA(Node *root, int n1, int n2)
    }
 }
 
-
+// https://www.codingninjas.com/studio/problems/lca-in-a-bst_981280?leftPanelTab=1

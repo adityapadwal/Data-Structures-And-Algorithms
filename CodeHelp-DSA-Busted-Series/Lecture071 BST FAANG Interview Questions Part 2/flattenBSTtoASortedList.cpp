@@ -59,3 +59,5 @@ TreeNode<int>* flatten(TreeNode<int>* root)
     curr->right = NULL;
     return newRoot;
 }
+
+// https://www.codingninjas.com/studio/problems/flatten-bst-to-a-sorted-list_1169459?leftPanelTab=0

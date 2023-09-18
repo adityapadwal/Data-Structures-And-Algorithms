@@ -13,27 +13,24 @@ class Solution{
     // l : starting index of the array i.e 0
     // r : ending index of the array i.e size-1
     // k : find kth smallest element and return using this function
-    
-    int kthSmallest(int arr[], int l, int r, int k)
-    {
-        // Step 1: 
-        priority_queue<int>maxHeap;
+    int kthSmallest(int arr[], int l, int r, int k) {
+        priority_queue<int>pq;
+        
         for(int i=0; i<k; i++)
         {
-            // push elements 0 to k-1 into the heap 
-            maxHeap.push(arr[i]);
+            pq.push(arr[i]);
         }
         
-        // Step 2: 
         for(int i=k; i<=r; i++)
         {
-            if(arr[i] < maxHeap.top())
+            if(arr[i] <= pq.top())
             {
-                maxHeap.pop();
-                maxHeap.push(arr[i]);
+                pq.pop();
+                pq.push(arr[i]);
             }
         }
-        return maxHeap.top();
+        
+        return pq.top();
     }
 };
 
@@ -60,4 +57,5 @@ int main()
     return 0;
 }
 // } Driver Code Ends
+
 // https://practice.geeksforgeeks.org/problems/kth-smallest-element5635/1

@@ -82,3 +82,4 @@ Node<int>* mergeKLists(vector<Node<int>*> &listArray)
 
 // https://leetcode.com/problems/merge-k-sorted-lists/submissions/
 // https://www.codingninjas.com/studio/problems/merge-k-sorted-lists_992772
+// https://practice.geeksforgeeks.org/problems/merge-k-sorted-linked-lists/1

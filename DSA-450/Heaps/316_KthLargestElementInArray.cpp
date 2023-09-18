@@ -9,34 +9,31 @@ using namespace std;
 class Solution{
 public:	
 	vector<int> kLargest(int arr[], int n, int k) {
-	   // Creating the min heap
+	    vector<int>ans; // for the final answer
 	    priority_queue<int, vector<int>, greater<int>>pq;
-	   
-	   //creating a vector for the ans
-	   vector<int>ans;
-	   
-	   //adding first k elements into the min heap
-	   for(int i=0; i<k; i++)
-	   {
-	       pq.push(arr[i]);
-	   }
-	   
-	   for(int i=k; i<n; i++)
-	   {
-	       if(arr[i] >= pq.top())
-	       {
-	           pq.pop();
-	           pq.push(arr[i]);
-	       }
-	   }
-	   
-	   for(int i=0; i<k; i++)
-	   {
-	       ans.push_back(pq.top());
-	       pq.pop();
-	   }
-	   reverse(ans.begin(), ans.end());
-	   return ans;
+	    
+	    for(int i=0; i<k; i++)
+	    {
+	        pq.push(arr[i]);
+	    }
+	    
+	    for(int i=k; i<n; i++)
+	    {
+	        if(arr[i]>pq.top())
+	        {
+	            pq.pop();
+	            pq.push(arr[i]);
+	        }
+	    }
+	    
+	    for(int i=0; i<k; i++)
+	    {
+	        ans.push_back(pq.top());
+	        pq.pop();
+	    }
+	    
+	    reverse(ans.begin(), ans.end());
+	    return ans;
 	}
 
 };

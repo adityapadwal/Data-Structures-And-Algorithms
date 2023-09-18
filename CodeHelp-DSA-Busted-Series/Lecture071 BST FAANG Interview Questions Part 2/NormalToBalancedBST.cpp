@@ -54,3 +54,5 @@ TreeNode<int>* balancedBst(TreeNode<int>* root) {
     
     return inorderToBST(0, inorderval.size()-1, inorderval);
 }
+
+// https://www.codingninjas.com/studio/problems/normal-bst-to-balanced-bst_920472?leftPanelTab=0

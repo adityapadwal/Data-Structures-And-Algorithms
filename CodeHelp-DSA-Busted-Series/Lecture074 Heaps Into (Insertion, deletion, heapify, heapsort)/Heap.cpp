@@ -15,10 +15,12 @@ class Heap {
     }
     void insert(int val)
     {
+        // Step 1: inserting the element at the end
         size = size + 1;
         int index = size;
         arr[index] = val;
         
+        // Step 2: check if the element is at its correct position
         while(index > 1)
         {
             int parent = index/2;
@@ -43,10 +45,13 @@ class Heap {
             return;
         }
 
+        // Step 1: Copy the value of the leaf node into the root node
         arr[1] = arr[size];
+
+        // Step 2: Delete the leaf node
         size--;
 
-        // Take root node to its correct position
+        // Step 3: Take root node to its correct position
         int i = 1;
         while(i < size)
         {

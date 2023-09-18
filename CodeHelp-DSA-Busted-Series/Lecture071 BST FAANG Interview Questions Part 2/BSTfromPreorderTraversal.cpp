@@ -51,3 +51,5 @@ BinaryTreeNode<int>* preorderToBST(vector<int> &preorder) {
     int i = 0;
     return solve(preorder, mini, maxi, i);
 }
+
+// https://www.codingninjas.com/studio/problems/preorder-traversal-to-bst_893111

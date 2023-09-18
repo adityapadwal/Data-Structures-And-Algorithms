@@ -61,3 +61,5 @@ bool twoSumInBST(BinaryTreeNode<int>* root, int target) {
     }
     return false;
 }
+
+// https://www.codingninjas.com/studio/problems/two-sum-in-a-bst_1062631?leftPanelTab=0

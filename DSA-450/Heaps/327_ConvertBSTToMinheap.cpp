@@ -52,3 +52,4 @@ BinaryTreeNode* convertBST(BinaryTreeNode* root)
 // ************************* MAIN CODE ENDS **********************************
 
 // https://www.codingninjas.com/studio/problems/convert-bst-to-min-heap_920498?leftPanelTab=1
+// https://www.geeksforgeeks.org/convert-bst-min-heap/

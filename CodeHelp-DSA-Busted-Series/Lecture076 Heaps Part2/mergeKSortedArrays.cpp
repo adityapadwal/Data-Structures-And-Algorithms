@@ -57,3 +57,6 @@ vector<int> mergeKSortedArrays(vector<vector<int>>&kArrays, int k)
     }
     return ans;
 }
+
+// https://practice.geeksforgeeks.org/problems/merge-k-sorted-arrays/1
+// https://www.codingninjas.com/studio/problems/merge-k-sorted-arrays_975379?leftPanelTab=1

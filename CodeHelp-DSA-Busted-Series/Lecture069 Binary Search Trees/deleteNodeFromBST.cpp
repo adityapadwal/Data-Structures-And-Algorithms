@@ -1,90 +1,176 @@
-#include<iostream>
+//{ Driver Code Starts
+#include <bits/stdc++.h>
 using namespace std;
+#define MAX_HEIGHT 100000
 
-//  Definition for a binary tree node.
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
- 
-class Solution {
-private:
-    TreeNode* minVal(TreeNode* root)
-    {
-        TreeNode* temp = root;
-        while(temp -> left)
-        {
-            temp = temp -> left;
-        }
-        return temp;
+// Tree Node
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+
+    Node(int val) {
+        data = val;
+        left = right = NULL;
     }
-public:
-    TreeNode* deleteNode(TreeNode* root, int key) {
-        // base case 
-        if(root==NULL)
+};
+
+struct Node* deleteNode(struct Node* root, int key);
+
+// Function to Build Tree
+Node* buildTree(string str) {
+    // Corner Case
+    if (str.length() == 0 || str[0] == 'N') return NULL;
+
+    // Creating vector of strings from input
+    // string after spliting by space
+    vector<string> ip;
+
+    istringstream iss(str);
+    for (string str; iss >> str;) ip.push_back(str);
+
+    // Create the root of the tree
+    Node* root = new Node(stoi(ip[0]));
+
+    // Push the root to the queue
+    queue<Node*> queue;
+    queue.push(root);
+
+    // Starting from the second element
+    int i = 1;
+    while (!queue.empty() && i < ip.size()) {
+
+        // Get and remove the front of the queue
+        Node* currNode = queue.front();
+        queue.pop();
+
+        // Get the current node's value from the string
+        string currVal = ip[i];
+
+        // If the left child is not null
+        if (currVal != "N") {
+
+            // Create the left child for the current node
+            currNode->left = new Node(stoi(currVal));
+
+            // Push it to the queue
+            queue.push(currNode->left);
+        }
+
+        // For the right child
+        i++;
+        if (i >= ip.size()) break;
+        currVal = ip[i];
+
+        // If the right child is not null
+        if (currVal != "N") {
+
+            // Create the right child for the current node
+            currNode->right = new Node(stoi(currVal));
+
+            // Push it to the queue
+            queue.push(currNode->right);
+        }
+        i++;
+    }
+
+    return root;
+}
+
+void inorder(Node* root, vector<int>& v) {
+    if (root == NULL) return;
+
+    inorder(root->left, v);
+    v.push_back(root->data);
+    inorder(root->right, v);
+}
+
+int main() {
+
+    int t;
+    string tc;
+    getline(cin, tc);
+    t = stoi(tc);
+    while (t--) {
+        string s;
+        getline(cin, s);
+        Node* root1 = buildTree(s);
+        getline(cin, s);
+        int k = stoi(s);
+        root1 = deleteNode(root1, k);
+        vector<int> v;
+        inorder(root1, v);
+        for (auto i : v) cout << i << " ";
+        cout << endl;
+    }
+    return 0;
+}
+// } Driver Code Ends
+
+
+// Function to delete a node from BST.
+int inorderSuccessor(Node* root)
+{
+    Node* temp = root;
+    while(temp && temp->left)
+    {
+        temp = temp->left;
+    }
+    return temp->data;
+}
+
+Node *deleteNode(Node *root, int X) {
+    if(root == NULL)
+    {
+        return root;
+    }
+    
+    if(root->data == X)
+    {
+        // Case1: If root is a leaf node
+        if(root->left==NULL && root->right==NULL)
         {
+            delete root;
             return NULL;
         }
         
-        if(root->val == key)
+        // Case2: If root has 1 child
+        // left child
+        if(root->left!=NULL && root->right==NULL)
         {
-            // Case 1: leaf node 
-            if(root->left == NULL && root->right == NULL)
-            {
-                delete root;
-                return NULL;
-            }
-            
-            // Case 2: 1 child 
-            // a) delete left
-            if(root->left!=NULL && root->right==NULL)
-            {
-                TreeNode* temp = root->left;
-                // root = temp;
-                // delete root->left;
-                delete root;
-                return temp;
-            }
-            // b) delete right
-            if(root->right!=NULL && root->left==NULL)
-            {
-                TreeNode* temp = root->right;
-                // root = temp;
-                // delete root->right;
-                delete root;
-                return temp;
-            }
-            
-            // Case 3: 2 children 
-            if(root->left!=NULL && root->right!= NULL)
-            {
-                // replace root with inorder successor
-                // Step 1: Find the minimum node from the left subtree
-                int mini = minVal(root->right)->val;
-                // Step 2: Replace root with mini
-                root->val = mini;
-                // Step 3: Delete mini
-                root->right = deleteNode(root->right, mini);
-                return root;
-            }
+            Node* temp = root->left;
+            delete root;
+            return temp;
+        }
+        //right child
+        if(root->right!=NULL && root->left==NULL)
+        {
+            Node* temp = root->right;
+            delete root;
+            return temp;
         }
         
-        else if(root->val < key)
+        // Case 3: If root has 2 children
+        if(root->left!=NULL && root->right!=NULL)
         {
-            root->right = deleteNode(root->right, key);
-            return root;
+            // Step 1: Find the inorder successor
+            int minVal = inorderSuccessor(root->right);
+            // Step 2: Replace root->data with minVal
+            root->data = minVal;
+            // Step 3: delete the node with value minVal
+            root->right = deleteNode(root->right, minVal);
         }
-        
-        else
-        {
-            root->left = deleteNode(root->left, key);
-            return root;
-        }
-         
-        return NULL;
     }
-};
+    
+    if(root->data < X)
+    {
+        root->right = deleteNode(root->right, X);
+    }
+    if(root->data > X)
+    {
+        root->left = deleteNode(root->left, X);
+    }
+    
+    return root;
+}
+// https://practice.geeksforgeeks.org/problems/delete-a-node-from-bst/1

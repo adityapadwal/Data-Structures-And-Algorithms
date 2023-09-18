@@ -53,3 +53,6 @@ int getKthLargest(vector<int> &arr, int k)
     }
     return pq.top();
 }
+
+// https://www.codingninjas.com/studio/problems/k-th-largest-sum-contiguous-subarray_920398?leftPanelTab=0
+// https://practice.geeksforgeeks.org/problems/k-th-largest-sum-contiguous-subarray/1

@@ -211,3 +211,5 @@ int main()
 }
 
 // } Driver Code Ends
+
+// https://practice.geeksforgeeks.org/problems/burning-tree/1
