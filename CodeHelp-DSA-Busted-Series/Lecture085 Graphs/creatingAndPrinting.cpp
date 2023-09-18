@@ -30,5 +30,26 @@ vector < vector < int >> printAdjacency(int n, int m, vector < vector < int >> &
     return adj;
 }
 
+// Simpler Method
+vector < vector < int >> printAdjacency(int n, int m, vector < vector < int >> & edges) {
+    // Write your code here.
+    vector<vector<int>>finalAns(n);
+    for(int i=0; i<n; i++)
+    {
+        finalAns[i].push_back(i);
+    }
+
+    for(int i=0; i<m; i++)
+    {
+        int u = edges[i][0];
+        int v = edges[i][1];
+
+        finalAns[u].push_back(v);
+        finalAns[v].push_back(u);
+    }
+
+    return finalAns;
+}
+
 // Rev
 // https://www.codingninjas.com/codestudio/problems/create-a-graph-and-print-it_1214551?topList=love-babbar-dsa-sheet-problems&leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar
