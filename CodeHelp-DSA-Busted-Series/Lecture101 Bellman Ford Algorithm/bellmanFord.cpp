@@ -56,3 +56,4 @@ int bellmonFord(int n, int m, int src, int dest, vector<vector<int>> &edges) {
 
 // rev
 // https://www.codingninjas.com/codestudio/problems/bellmon-ford_2041977
+// https://practice.geeksforgeeks.org/problems/distance-from-the-source-bellman-ford-algorithm/1

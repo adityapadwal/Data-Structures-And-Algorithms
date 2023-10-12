@@ -35,10 +35,11 @@ void dfs(int node, int parent, int &timer, unordered_map<int, list<int>>&adj, un
             // dfs call to the neighbour
             dfs(neighbour, node, timer, adj, visited, disc, low, result);
 
-            // after returning, update low of node
+            // after returning, do the following two things, 
+            // 1. update low of node, (Why? because the chlid might have a back edge which will lead to updating the cheild's low)
             low[node] = min(low[node], low[neighbour]);
-            // check for the bridge condition
-            if(low[neighbour] > disc[node])
+            // 2. check for the bridge condition
+            if(low[neighbour] > disc[node]) // imp
             {
                 vector<int>ans;
                 ans.push_back(node);
@@ -48,7 +49,7 @@ void dfs(int node, int parent, int &timer, unordered_map<int, list<int>>&adj, un
         }
         else
         {
-            // visited[neighbour] == true && parent != neighbour
+            // visited[neighbour] == true && neighbour != parent
             // back edge is present
             low[node] = min(low[node], disc[neighbour]);
         }

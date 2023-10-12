@@ -165,4 +165,5 @@ int stronglyConnectedComponents(int v, vector<vector<int>> &edges)
 // }
 
 // Rev
+// https://practice.geeksforgeeks.org/problems/strongly-connected-components-kosarajus-algo/1
 // https://www.codingninjas.com/codestudio/problems/count-strongly-connected-components-kosaraju-s-algorithm_1171151?leftPanelTab=0

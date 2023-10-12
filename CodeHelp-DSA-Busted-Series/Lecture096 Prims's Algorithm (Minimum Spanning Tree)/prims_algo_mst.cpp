@@ -45,7 +45,7 @@ vector<pair<pair<int, int>, int>> calculatePrimsMST(int n, int m, vector<pair<pa
         int mini = INT_MAX;
         int u;
 
-        for(int v=1; v<=n; v++)
+        for(int v=1; v<=n; v++) // if nodes start from 1, then start from 1 to <=n else start from 0 to <n
         {
             if(mst[v] == false && key[v] < mini)
             {
