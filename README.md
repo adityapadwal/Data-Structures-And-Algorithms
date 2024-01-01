@@ -1,7 +1,7 @@
 # Data-Structures-And-Algorithms
 This repository includes code from
-1. DSA Lectures by Love Babbar(CodeHelp)
-2. DSA-450 Sheet by Love Babbar
+1. DSA Lectures by Love Babbar(CodeHelp) => First directory
+2. DSA Sheet (Love Babbar + Striver) => Second directory
 
 DSA Topics covered
 1. Basic Logic Building
